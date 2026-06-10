@@ -252,7 +252,9 @@ function generateSubjectPages() {
     fs.writeFileSync(path.join(subDir, 'index.html'), getLayout(indexContent, `${subject.name} | まなびドリル`, 2));
 
     subject.units.forEach(unit => {
-      const problems = [1, 2, 3, 4, 5].map(num => `
+      const problems = unit.problems.map((p, idx) => {
+        const num = idx + 1;
+        return `
         <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group">
             <div class="flex items-center gap-3 mb-6">
                 <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問${num}</span>
@@ -261,8 +263,7 @@ function generateSubjectPages() {
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    ここに問題文が入ります。${unit.title}に関する標準的な問題です。<br>
-                    解答用紙に答えを記入してから、「答え合わせ」を確認しましょう。
+                    ${p.q}
                 </p>
             </div>
 
@@ -275,16 +276,21 @@ function generateSubjectPages() {
                         <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
                             <i class="fa-solid fa-lightbulb"></i> 正解と解説
                         </div>
-                        <p class="text-green-800 leading-relaxed">
-                            <span class="font-bold text-xl block mb-2">【解答】 正解はこちら</span>
-                            詳しい解説がここに表示されます。${unit.title}のポイントは〇〇です。
-                            間違えた場合は、教科書に戻って復習しましょう。
-                        </p>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">${p.a}</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>${p.e}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-      `).join('');
+      `;}).join('');
 
       const unitContent = `
         <div class="max-w-4xl mx-auto">
