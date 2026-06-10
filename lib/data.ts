@@ -1,0 +1,106 @@
+export type Unit = {
+  id: string;
+  title: string;
+};
+
+export type Subject = {
+  id: string;
+  name: string;
+  description: string;
+  units: Unit[];
+};
+
+export const subjects: Record<string, Subject> = {
+  math: {
+    id: "math",
+    name: "数学",
+    description: "基礎から応用まで、数学の全単元を網羅しています。",
+    units: [
+      { id: "positive-negative", title: "正負の数" },
+      { id: "algebraic-expressions", title: "文字の式" },
+      { id: "linear-equations", title: "一次方程式" },
+      { id: "proportional-inverse", title: "比例と反比例" },
+      { id: "plane-figures", title: "平面図形" },
+      { id: "solid-figures", title: "空間図形" },
+      { id: "data-analysis", title: "データの活用" },
+      { id: "calculating-expressions", title: "式の計算" },
+      { id: "simultaneous-equations", title: "連立方程式" },
+      { id: "linear-functions", title: "一次関数" },
+      { id: "examining-figures", title: "図形の調べ方" },
+      { id: "properties-and-proofs", title: "図形の性質と証明" },
+      { id: "probability", title: "確率" },
+      { id: "polynomials", title: "多項式" },
+      { id: "square-roots", title: "平方根" },
+      { id: "quadratic-equations", title: "二次方程式" },
+      { id: "functions-y-ax2", title: "関数y=ax^2" },
+      { id: "similar-figures", title: "図形の相似" },
+      { id: "circumference-angle", title: "円周角の定理" },
+      { id: "pythagorean-theorem", title: "三平方の定理" },
+      { id: "sample-surveys", title: "標本調査" },
+    ],
+  },
+  science: {
+    id: "science",
+    name: "理科",
+    description: "生命、物質、エネルギー、地球。自然界の不思議を解き明かしましょう。",
+    units: [
+      { id: "plant-world", title: "植物の世界" },
+      { id: "materials-around-us", title: "身のまわりの物質" },
+      { id: "light-sound-force", title: "光・音・力" },
+      { id: "changes-in-earth", title: "大地の変化" },
+      { id: "chemical-changes-atoms", title: "化学変化と原子・分子" },
+      { id: "biology-structure", title: "生物の体とつくり" },
+      { id: "electricity-use", title: "電流とその利用" },
+      { id: "weather-changes", title: "天気の変化" },
+      { id: "chemical-changes-ions", title: "化学変化とイオン" },
+      { id: "continuity-of-life", title: "生命の連続性" },
+      { id: "motion-energy", title: "運動とエネルギー" },
+      { id: "earth-universe", title: "地球と宇宙" },
+      { id: "nature-humans", title: "自然と人間" },
+    ],
+  },
+  social: {
+    id: "social",
+    name: "社会",
+    description: "歴史、地理、公民。私たちの生きる世界について深く学びます。",
+    units: [
+      { id: "world-overview", title: "世界の姿" },
+      { id: "japan-overview", title: "日本の姿" },
+      { id: "world-regions", title: "世界の諸地域" },
+      { id: "japan-regions", title: "日本の諸地域" },
+      { id: "history-intro", title: "歴史の導入" },
+      { id: "ancient-japan", title: "古代の日本" },
+      { id: "medieval-japan", title: "中世の日本" },
+      { id: "early-modern-japan", title: "近世の日本" },
+      { id: "modern-japan", title: "近代の日本" },
+      { id: "contemporary-japan", title: "現代の日本" },
+      { id: "modern-society", title: "現代社会" },
+      { id: "constitution", title: "日本国憲法" },
+      { id: "politics", title: "政治" },
+      { id: "economics", title: "経済" },
+      { id: "international-society", title: "国際社会" },
+    ],
+  },
+  english: {
+    id: "english",
+    name: "英語",
+    description: "英文法をマスターして、世界中の人々とコミュニケーションをとりましょう。",
+    units: [
+      { id: "be-verbs", title: "Be動詞" },
+      { id: "general-verbs", title: "一般動詞" },
+      { id: "auxiliary-can", title: "助動詞can" },
+      { id: "present-progressive", title: "現在進行形" },
+      { id: "past-tense", title: "過去形" },
+      { id: "future-tense", title: "未来形" },
+      { id: "auxiliary-must-should", title: "助動詞must/should" },
+      { id: "infinitives", title: "不定詞" },
+      { id: "gerunds", title: "動名詞" },
+      { id: "comparison", title: "比較" },
+      { id: "passive-voice", title: "受動態" },
+      { id: "present-perfect", title: "現在完了" },
+      { id: "relative-pronouns", title: "関係代名詞" },
+      { id: "participles", title: "分詞" },
+      { id: "indirect-questions", title: "間接疑問文" },
+    ],
+  },
+};
