@@ -11,11 +11,20 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap');
         body { font-family: 'M PLUS Rounded 1c', sans-serif; }
+        @media print {
+            .no-print { display: none !important; }
+            .print-only { display: block !important; }
+            body { background: white; }
+            main { padding: 0 !important; max-width: none !important; }
+            .unit-card { border: 1px solid #e2e8f0 !important; break-inside: avoid; margin-bottom: 2rem; border-radius: 1rem !important; }
+            .print-footer { position: fixed; bottom: 0; right: 0; font-size: 10px; color: #94a3b8; padding: 10px; }
+        }
+        .print-only { display: none; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
     <div class="min-h-screen flex flex-col">
-        <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <header class="bg-white border-b border-slate-200 sticky top-0 z-50 no-print">
             <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
                 <a href="./index.html" class="text-2xl font-bold flex items-center gap-2 text-sky-600">
                     <i class="fa-solid fa-graduation-cap"></i>
@@ -85,7 +94,7 @@
                 <i class="fa-solid fa-calculator"></i>
               </div>
               <h3 class="text-2xl font-bold text-slate-800 mb-3">数学</h3>
-              <p class="text-slate-500 text-sm mb-6 leading-relaxed">基礎から応用まで、数学の全単元を網羅しています。</p>
+              <p class="text-slate-500 text-sm mb-6 leading-relaxed">基礎から応用まで網羅。</p>
               <div class="mt-auto text-sky-500 font-bold flex items-center gap-2 group-hover:gap-3 transition-all">
                 ドリル一覧 <i class="fa-solid fa-arrow-right"></i>
               </div>
@@ -97,7 +106,7 @@
                 <i class="fa-solid fa-flask"></i>
               </div>
               <h3 class="text-2xl font-bold text-slate-800 mb-3">理科</h3>
-              <p class="text-slate-500 text-sm mb-6 leading-relaxed">生命、物質、エネルギー、地球。自然界の不思議を解き明かしましょう。</p>
+              <p class="text-slate-500 text-sm mb-6 leading-relaxed">自然の不思議を解明。</p>
               <div class="mt-auto text-sky-500 font-bold flex items-center gap-2 group-hover:gap-3 transition-all">
                 ドリル一覧 <i class="fa-solid fa-arrow-right"></i>
               </div>
@@ -109,7 +118,7 @@
                 <i class="fa-solid fa-earth-americas"></i>
               </div>
               <h3 class="text-2xl font-bold text-slate-800 mb-3">社会</h3>
-              <p class="text-slate-500 text-sm mb-6 leading-relaxed">歴史、地理、公民。私たちの生きる世界について深く学びます。</p>
+              <p class="text-slate-500 text-sm mb-6 leading-relaxed">地理・歴史・公民を学ぶ。</p>
               <div class="mt-auto text-sky-500 font-bold flex items-center gap-2 group-hover:gap-3 transition-all">
                 ドリル一覧 <i class="fa-solid fa-arrow-right"></i>
               </div>
@@ -121,7 +130,7 @@
                 <i class="fa-solid fa-language"></i>
               </div>
               <h3 class="text-2xl font-bold text-slate-800 mb-3">英語</h3>
-              <p class="text-slate-500 text-sm mb-6 leading-relaxed">英文法をマスターして、世界中の人々とコミュニケーションをとりましょう。</p>
+              <p class="text-slate-500 text-sm mb-6 leading-relaxed">世界とつながる力を身につける。</p>
               <div class="mt-auto text-sky-500 font-bold flex items-center gap-2 group-hover:gap-3 transition-all">
                 ドリル一覧 <i class="fa-solid fa-arrow-right"></i>
               </div>
@@ -141,14 +150,14 @@
           </li>
           <li class="flex flex-col sm:flex-row gap-4 sm:items-center p-4 hover:bg-slate-50 rounded-xl transition">
             <span class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full w-fit">2023.10.27</span>
-            <p class="text-slate-700">全教科の単元を追加し、各単元の問題数を5問に増やしました。</p>
+            <p class="text-slate-700">全教科の単元を網羅し、各単元の問題数を30問に増やしました。</p>
           </li>
         </ul>
       </section>
     </div>
         </main>
 
-        <footer class="bg-slate-800 text-slate-300 py-12 mt-12">
+        <footer class="bg-slate-800 text-slate-300 py-12 mt-12 no-print">
             <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div>
                     <h3 class="text-xl font-bold mb-4 text-white">まなびドリル</h3>

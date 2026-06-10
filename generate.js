@@ -21,11 +21,20 @@ function getLayout(content, title = SITE_TITLE, depth = 0) {
     <style>
         @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap');
         body { font-family: 'M PLUS Rounded 1c', sans-serif; }
+        @media print {
+            .no-print { display: none !important; }
+            .print-only { display: block !important; }
+            body { background: white; }
+            main { padding: 0 !important; max-width: none !important; }
+            .unit-card { border: 1px solid #e2e8f0 !important; break-inside: avoid; margin-bottom: 2rem; border-radius: 1rem !important; }
+            .print-footer { position: fixed; bottom: 0; right: 0; font-size: 10px; color: #94a3b8; padding: 10px; }
+        }
+        .print-only { display: none; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
     <div class="min-h-screen flex flex-col">
-        <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <header class="bg-white border-b border-slate-200 sticky top-0 z-50 no-print">
             <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
                 <a href="${rootPrefix}index.html" class="text-2xl font-bold flex items-center gap-2 text-sky-600">
                     <i class="fa-solid fa-graduation-cap"></i>
@@ -66,7 +75,7 @@ function getLayout(content, title = SITE_TITLE, depth = 0) {
             ${content}
         </main>
 
-        <footer class="bg-slate-800 text-slate-300 py-12 mt-12">
+        <footer class="bg-slate-800 text-slate-300 py-12 mt-12 no-print">
             <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div>
                     <h3 class="text-xl font-bold mb-4 text-white">まなびドリル</h3>
@@ -158,7 +167,7 @@ function generateIndex() {
           </li>
           <li class="flex flex-col sm:flex-row gap-4 sm:items-center p-4 hover:bg-slate-50 rounded-xl transition">
             <span class="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full w-fit">2023.10.27</span>
-            <p class="text-slate-700">全教科の単元を追加し、各単元の問題数を5問に増やしました。</p>
+            <p class="text-slate-700">全教科の単元を網羅し、各単元の問題数を30問に増やしました。</p>
           </li>
         </ul>
       </section>
@@ -174,7 +183,7 @@ function generateStaticPages() {
             <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm space-y-6 text-slate-700 leading-loose">
                 <p>「まなびドリル」は、中学生の皆さんが日々の学習や定期テスト対策を自力で進められるように支援することを目的とした無料学習サイトです。</p>
                 <h2 class="text-2xl font-bold text-slate-800 mt-10">リニューアルについて</h2>
-                <p>より使いやすく、より多くの問題に取り組めるようにデザインと内容を一新しました。青すぎたデザインを和らげ、目に優しい配色に変更しています。</p>
+                <p>より使いやすく、より多くの問題に取り組めるようにデザインと内容を一新しました。全単元で30問の問題を用意し、PDFでのダウンロードや印刷にも対応しました。</p>
             </div>
         </div>`;
     fs.writeFileSync('about.html', getLayout(aboutContent));
@@ -185,7 +194,7 @@ function generateStaticPages() {
             <div class="grid gap-6">
                 ${[
                     { step: '1', title: '教科と単元を選ぶ', text: 'トップページから勉強したい教科を選び、ドリル一覧から単元を選択しましょう。' },
-                    { step: '2', title: '問題にチャレンジ', text: '各単元には5つの問題があります。まずは自分で答えを考えてみてください。' },
+                    { step: '2', title: '問題にチャレンジ', text: '各単元には30つの問題があります。まずは自分で答えを考えてみてください。' },
                     { step: '3', title: '答え合わせと復習', text: '「答え合わせ」ボタンで正解を確認。解説を読んで理解を深めましょう。' }
                 ].map(s => `
                     <div class="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm flex gap-6">
@@ -255,7 +264,7 @@ function generateSubjectPages() {
       const problems = unit.problems.map((p, idx) => {
         const num = idx + 1;
         return `
-        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group">
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
             <div class="flex items-center gap-3 mb-6">
                 <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問${num}</span>
                 <h2 class="text-xl font-bold text-slate-800">${unit.title} の問題 ${num}</h2>
@@ -268,10 +277,10 @@ function generateSubjectPages() {
             </div>
 
             <div class="flex flex-col gap-4">
-                <button onclick="toggleAnswer('ans${num}', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2">
+                <button onclick="toggleAnswer('ans${num}', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
                     <i class="fa-solid fa-check"></i> 答え合わせ
                 </button>
-                <div id="ans${num}" class="hidden animate-in fade-in slide-in-from-top-2 duration-300">
+                <div id="ans${num}" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
                     <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
                         <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
                             <i class="fa-solid fa-lightbulb"></i> 正解と解説
@@ -294,7 +303,7 @@ function generateSubjectPages() {
 
       const unitContent = `
         <div class="max-w-4xl mx-auto">
-          <nav class="flex mb-8 text-sm font-bold text-slate-400">
+          <nav class="flex mb-8 text-sm font-bold text-slate-400 no-print">
             <ol class="flex items-center space-x-2">
               <li><a href="../../index.html" class="hover:text-sky-500">ホーム</a></li>
               <li class="flex items-center gap-2">
@@ -310,17 +319,28 @@ function generateSubjectPages() {
 
           <header class="mb-12">
             <h1 class="text-3xl md:text-4xl font-black text-slate-800 mb-4">${unit.title} 練習ドリル</h1>
-            <p class="text-slate-500 font-medium">全5問のドリルです。一つずつ丁寧に解いていきましょう。</p>
+            <p class="text-slate-500 font-medium no-print">全30問のドリルです。一つずつ丁寧に解いていきましょう。</p>
+            <div class="mt-6 flex flex-wrap gap-4 no-print">
+                <a href="${unit.id}.pdf" class="bg-rose-500 text-white px-6 py-2 rounded-xl font-bold hover:bg-rose-600 transition flex items-center gap-2 shadow-lg shadow-rose-100">
+                    <i class="fa-solid fa-file-pdf"></i> PDF版をダウンロード
+                </a>
+                <button onclick="window.print()" class="bg-slate-800 text-white px-6 py-2 rounded-xl font-bold hover:bg-slate-900 transition flex items-center gap-2 shadow-lg shadow-slate-200">
+                    <i class="fa-solid fa-print"></i> 印刷する
+                </button>
+            </div>
           </header>
 
           <div class="space-y-12">
             ${problems}
           </div>
 
-          <div class="mt-16 pt-10 border-t border-slate-200 flex justify-center">
+          <div class="mt-16 pt-10 border-t border-slate-200 flex justify-center no-print">
             <a href="index.html" class="bg-white text-slate-600 border border-slate-200 px-8 py-3 rounded-2xl font-bold hover:bg-slate-50 transition flex items-center gap-2">
               <i class="fa-solid fa-arrow-left"></i> ${subject.name}の一覧に戻る
             </a>
+          </div>
+          <div class="print-footer print-only text-right">
+            まなびドリル
           </div>
         </div>
         <script>

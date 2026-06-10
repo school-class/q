@@ -11,11 +11,20 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap');
         body { font-family: 'M PLUS Rounded 1c', sans-serif; }
+        @media print {
+            .no-print { display: none !important; }
+            .print-only { display: block !important; }
+            body { background: white; }
+            main { padding: 0 !important; max-width: none !important; }
+            .unit-card { border: 1px solid #e2e8f0 !important; break-inside: avoid; margin-bottom: 2rem; border-radius: 1rem !important; }
+            .print-footer { position: fixed; bottom: 0; right: 0; font-size: 10px; color: #94a3b8; padding: 10px; }
+        }
+        .print-only { display: none; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
     <div class="min-h-screen flex flex-col">
-        <header class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <header class="bg-white border-b border-slate-200 sticky top-0 z-50 no-print">
             <nav class="container mx-auto px-4 py-4 flex justify-between items-center">
                 <a href="../../index.html" class="text-2xl font-bold flex items-center gap-2 text-sky-600">
                     <i class="fa-solid fa-graduation-cap"></i>
@@ -55,7 +64,7 @@
         <main class="flex-grow container mx-auto px-4 py-8 max-w-5xl">
 
         <div class="max-w-4xl mx-auto">
-          <nav class="flex mb-8 text-sm font-bold text-slate-400">
+          <nav class="flex mb-8 text-sm font-bold text-slate-400 no-print">
             <ol class="flex items-center space-x-2">
               <li><a href="../../index.html" class="hover:text-sky-500">ホーム</a></li>
               <li class="flex items-center gap-2">
@@ -71,12 +80,20 @@
 
           <header class="mb-12">
             <h1 class="text-3xl md:text-4xl font-black text-slate-800 mb-4">比例と反比例 練習ドリル</h1>
-            <p class="text-slate-500 font-medium">全5問のドリルです。一つずつ丁寧に解いていきましょう。</p>
+            <p class="text-slate-500 font-medium no-print">全30問のドリルです。一つずつ丁寧に解いていきましょう。</p>
+            <div class="mt-6 flex flex-wrap gap-4 no-print">
+                <a href="proportional-inverse.pdf" class="bg-rose-500 text-white px-6 py-2 rounded-xl font-bold hover:bg-rose-600 transition flex items-center gap-2 shadow-lg shadow-rose-100">
+                    <i class="fa-solid fa-file-pdf"></i> PDF版をダウンロード
+                </a>
+                <button onclick="window.print()" class="bg-slate-800 text-white px-6 py-2 rounded-xl font-bold hover:bg-slate-900 transition flex items-center gap-2 shadow-lg shadow-slate-200">
+                    <i class="fa-solid fa-print"></i> 印刷する
+                </button>
+            </div>
           </header>
 
           <div class="space-y-12">
 
-        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group">
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
             <div class="flex items-center gap-3 mb-6">
                 <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問1</span>
                 <h2 class="text-xl font-bold text-slate-800">比例と反比例 の問題 1</h2>
@@ -84,15 +101,15 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    y は x に比例し、x = 2 のとき y = 6 です。比例定数を求めなさい。
+                    proportional-inverse に関する問題 1: 16 と 10 を用いた標準問題です。
                 </p>
             </div>
 
             <div class="flex flex-col gap-4">
-                <button onclick="toggleAnswer('ans1', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2">
+                <button onclick="toggleAnswer('ans1', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
                     <i class="fa-solid fa-check"></i> 答え合わせ
                 </button>
-                <div id="ans1" class="hidden animate-in fade-in slide-in-from-top-2 duration-300">
+                <div id="ans1" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
                     <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
                         <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
                             <i class="fa-solid fa-lightbulb"></i> 正解と解説
@@ -100,11 +117,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">3</span>
+                                <span class="text-2xl font-black">解答 1</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>y = ax に代入します。6 = a × 2 より a = 3 です。</p>
+                                <p>解説 1: この単元の基本事項を確認しましょう。</p>
                             </div>
                         </div>
                     </div>
@@ -112,7 +129,7 @@
             </div>
         </section>
 
-        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group">
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
             <div class="flex items-center gap-3 mb-6">
                 <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問2</span>
                 <h2 class="text-xl font-bold text-slate-800">比例と反比例 の問題 2</h2>
@@ -120,15 +137,15 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    y は x に比例し、y = 4x で表されます。x = 5 のときの y の値を求めなさい。
+                    proportional-inverse に関する問題 2: 14 と 3 を用いた標準問題です。
                 </p>
             </div>
 
             <div class="flex flex-col gap-4">
-                <button onclick="toggleAnswer('ans2', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2">
+                <button onclick="toggleAnswer('ans2', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
                     <i class="fa-solid fa-check"></i> 答え合わせ
                 </button>
-                <div id="ans2" class="hidden animate-in fade-in slide-in-from-top-2 duration-300">
+                <div id="ans2" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
                     <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
                         <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
                             <i class="fa-solid fa-lightbulb"></i> 正解と解説
@@ -136,11 +153,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">20</span>
+                                <span class="text-2xl font-black">解答 2</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>y = 4 × 5 = 20 となります。</p>
+                                <p>解説 2: この単元の基本事項を確認しましょう。</p>
                             </div>
                         </div>
                     </div>
@@ -148,7 +165,7 @@
             </div>
         </section>
 
-        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group">
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
             <div class="flex items-center gap-3 mb-6">
                 <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問3</span>
                 <h2 class="text-xl font-bold text-slate-800">比例と反比例 の問題 3</h2>
@@ -156,15 +173,15 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    y は x に反比例し、x = 3 のとき y = 4 です。比例定数を求めなさい。
+                    proportional-inverse に関する問題 3: 12 と 3 を用いた標準問題です。
                 </p>
             </div>
 
             <div class="flex flex-col gap-4">
-                <button onclick="toggleAnswer('ans3', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2">
+                <button onclick="toggleAnswer('ans3', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
                     <i class="fa-solid fa-check"></i> 答え合わせ
                 </button>
-                <div id="ans3" class="hidden animate-in fade-in slide-in-from-top-2 duration-300">
+                <div id="ans3" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
                     <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
                         <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
                             <i class="fa-solid fa-lightbulb"></i> 正解と解説
@@ -172,11 +189,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">12</span>
+                                <span class="text-2xl font-black">解答 3</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>y = a/x または xy = a に代入します。3 × 4 = 12 です。</p>
+                                <p>解説 3: この単元の基本事項を確認しましょう。</p>
                             </div>
                         </div>
                     </div>
@@ -184,7 +201,7 @@
             </div>
         </section>
 
-        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group">
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
             <div class="flex items-center gap-3 mb-6">
                 <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問4</span>
                 <h2 class="text-xl font-bold text-slate-800">比例と反比例 の問題 4</h2>
@@ -192,15 +209,15 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    y は x に反比例し、y = 18/x で表されます。x = 6 のときの y の値を求めなさい。
+                    proportional-inverse に関する問題 4: 19 と 13 を用いた標準問題です。
                 </p>
             </div>
 
             <div class="flex flex-col gap-4">
-                <button onclick="toggleAnswer('ans4', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2">
+                <button onclick="toggleAnswer('ans4', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
                     <i class="fa-solid fa-check"></i> 答え合わせ
                 </button>
-                <div id="ans4" class="hidden animate-in fade-in slide-in-from-top-2 duration-300">
+                <div id="ans4" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
                     <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
                         <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
                             <i class="fa-solid fa-lightbulb"></i> 正解と解説
@@ -208,11 +225,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">3</span>
+                                <span class="text-2xl font-black">解答 4</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>y = 18 ÷ 6 = 3 となります。</p>
+                                <p>解説 4: この単元の基本事項を確認しましょう。</p>
                             </div>
                         </div>
                     </div>
@@ -220,7 +237,7 @@
             </div>
         </section>
 
-        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group">
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
             <div class="flex items-center gap-3 mb-6">
                 <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問5</span>
                 <h2 class="text-xl font-bold text-slate-800">比例と反比例 の問題 5</h2>
@@ -228,15 +245,15 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    座標平面上で、点(3, -2)は第何象限にありますか。
+                    proportional-inverse に関する問題 5: 10 と 16 を用いた標準問題です。
                 </p>
             </div>
 
             <div class="flex flex-col gap-4">
-                <button onclick="toggleAnswer('ans5', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2">
+                <button onclick="toggleAnswer('ans5', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
                     <i class="fa-solid fa-check"></i> 答え合わせ
                 </button>
-                <div id="ans5" class="hidden animate-in fade-in slide-in-from-top-2 duration-300">
+                <div id="ans5" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
                     <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
                         <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
                             <i class="fa-solid fa-lightbulb"></i> 正解と解説
@@ -244,11 +261,911 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">第4象限</span>
+                                <span class="text-2xl font-black">解答 5</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>xが正、yが負の領域は右下の「第4象限」です。</p>
+                                <p>解説 5: この単元の基本事項を確認しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問6</span>
+                <h2 class="text-xl font-bold text-slate-800">比例と反比例 の問題 6</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    proportional-inverse に関する問題 6: 19 と 9 を用いた標準問題です。
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans6', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans6" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">解答 6</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>解説 6: この単元の基本事項を確認しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問7</span>
+                <h2 class="text-xl font-bold text-slate-800">比例と反比例 の問題 7</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    proportional-inverse に関する問題 7: 17 と 7 を用いた標準問題です。
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans7', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans7" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">解答 7</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>解説 7: この単元の基本事項を確認しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問8</span>
+                <h2 class="text-xl font-bold text-slate-800">比例と反比例 の問題 8</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    proportional-inverse に関する問題 8: 3 と 19 を用いた標準問題です。
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans8', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans8" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">解答 8</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>解説 8: この単元の基本事項を確認しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問9</span>
+                <h2 class="text-xl font-bold text-slate-800">比例と反比例 の問題 9</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    proportional-inverse に関する問題 9: 14 と 11 を用いた標準問題です。
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans9', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans9" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">解答 9</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>解説 9: この単元の基本事項を確認しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問10</span>
+                <h2 class="text-xl font-bold text-slate-800">比例と反比例 の問題 10</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    proportional-inverse に関する問題 10: 11 と 18 を用いた標準問題です。
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans10', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans10" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">解答 10</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>解説 10: この単元の基本事項を確認しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問11</span>
+                <h2 class="text-xl font-bold text-slate-800">比例と反比例 の問題 11</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    proportional-inverse に関する問題 11: 20 と 9 を用いた標準問題です。
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans11', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans11" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">解答 11</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>解説 11: この単元の基本事項を確認しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問12</span>
+                <h2 class="text-xl font-bold text-slate-800">比例と反比例 の問題 12</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    proportional-inverse に関する問題 12: 11 と 2 を用いた標準問題です。
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans12', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans12" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">解答 12</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>解説 12: この単元の基本事項を確認しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問13</span>
+                <h2 class="text-xl font-bold text-slate-800">比例と反比例 の問題 13</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    proportional-inverse に関する問題 13: 5 と 18 を用いた標準問題です。
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans13', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans13" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">解答 13</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>解説 13: この単元の基本事項を確認しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問14</span>
+                <h2 class="text-xl font-bold text-slate-800">比例と反比例 の問題 14</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    proportional-inverse に関する問題 14: 14 と 3 を用いた標準問題です。
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans14', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans14" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">解答 14</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>解説 14: この単元の基本事項を確認しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問15</span>
+                <h2 class="text-xl font-bold text-slate-800">比例と反比例 の問題 15</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    proportional-inverse に関する問題 15: 3 と 20 を用いた標準問題です。
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans15', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans15" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">解答 15</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>解説 15: この単元の基本事項を確認しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問16</span>
+                <h2 class="text-xl font-bold text-slate-800">比例と反比例 の問題 16</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    proportional-inverse に関する問題 16: 16 と 19 を用いた標準問題です。
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans16', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans16" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">解答 16</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>解説 16: この単元の基本事項を確認しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問17</span>
+                <h2 class="text-xl font-bold text-slate-800">比例と反比例 の問題 17</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    proportional-inverse に関する問題 17: 20 と 6 を用いた標準問題です。
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans17', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans17" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">解答 17</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>解説 17: この単元の基本事項を確認しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問18</span>
+                <h2 class="text-xl font-bold text-slate-800">比例と反比例 の問題 18</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    proportional-inverse に関する問題 18: 3 と 13 を用いた標準問題です。
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans18', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans18" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">解答 18</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>解説 18: この単元の基本事項を確認しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問19</span>
+                <h2 class="text-xl font-bold text-slate-800">比例と反比例 の問題 19</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    proportional-inverse に関する問題 19: 2 と 11 を用いた標準問題です。
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans19', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans19" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">解答 19</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>解説 19: この単元の基本事項を確認しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問20</span>
+                <h2 class="text-xl font-bold text-slate-800">比例と反比例 の問題 20</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    proportional-inverse に関する問題 20: 1 と 2 を用いた標準問題です。
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans20', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans20" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">解答 20</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>解説 20: この単元の基本事項を確認しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問21</span>
+                <h2 class="text-xl font-bold text-slate-800">比例と反比例 の問題 21</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    proportional-inverse に関する問題 21: 11 と 18 を用いた標準問題です。
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans21', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans21" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">解答 21</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>解説 21: この単元の基本事項を確認しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問22</span>
+                <h2 class="text-xl font-bold text-slate-800">比例と反比例 の問題 22</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    proportional-inverse に関する問題 22: 20 と 20 を用いた標準問題です。
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans22', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans22" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">解答 22</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>解説 22: この単元の基本事項を確認しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問23</span>
+                <h2 class="text-xl font-bold text-slate-800">比例と反比例 の問題 23</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    proportional-inverse に関する問題 23: 18 と 5 を用いた標準問題です。
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans23', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans23" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">解答 23</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>解説 23: この単元の基本事項を確認しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問24</span>
+                <h2 class="text-xl font-bold text-slate-800">比例と反比例 の問題 24</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    proportional-inverse に関する問題 24: 12 と 20 を用いた標準問題です。
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans24', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans24" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">解答 24</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>解説 24: この単元の基本事項を確認しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問25</span>
+                <h2 class="text-xl font-bold text-slate-800">比例と反比例 の問題 25</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    proportional-inverse に関する問題 25: 11 と 4 を用いた標準問題です。
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans25', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans25" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">解答 25</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>解説 25: この単元の基本事項を確認しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問26</span>
+                <h2 class="text-xl font-bold text-slate-800">比例と反比例 の問題 26</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    proportional-inverse に関する問題 26: 1 と 12 を用いた標準問題です。
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans26', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans26" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">解答 26</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>解説 26: この単元の基本事項を確認しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問27</span>
+                <h2 class="text-xl font-bold text-slate-800">比例と反比例 の問題 27</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    proportional-inverse に関する問題 27: 5 と 7 を用いた標準問題です。
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans27', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans27" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">解答 27</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>解説 27: この単元の基本事項を確認しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問28</span>
+                <h2 class="text-xl font-bold text-slate-800">比例と反比例 の問題 28</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    proportional-inverse に関する問題 28: 1 と 8 を用いた標準問題です。
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans28', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans28" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">解答 28</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>解説 28: この単元の基本事項を確認しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問29</span>
+                <h2 class="text-xl font-bold text-slate-800">比例と反比例 の問題 29</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    proportional-inverse に関する問題 29: 7 と 11 を用いた標準問題です。
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans29', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans29" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">解答 29</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>解説 29: この単元の基本事項を確認しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問30</span>
+                <h2 class="text-xl font-bold text-slate-800">比例と反比例 の問題 30</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    proportional-inverse に関する問題 30: 17 と 20 を用いた標準問題です。
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans30', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans30" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">解答 30</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>解説 30: この単元の基本事項を確認しましょう。</p>
                             </div>
                         </div>
                     </div>
@@ -258,10 +1175,13 @@
 
           </div>
 
-          <div class="mt-16 pt-10 border-t border-slate-200 flex justify-center">
+          <div class="mt-16 pt-10 border-t border-slate-200 flex justify-center no-print">
             <a href="index.html" class="bg-white text-slate-600 border border-slate-200 px-8 py-3 rounded-2xl font-bold hover:bg-slate-50 transition flex items-center gap-2">
               <i class="fa-solid fa-arrow-left"></i> 数学の一覧に戻る
             </a>
+          </div>
+          <div class="print-footer print-only text-right">
+            まなびドリル
           </div>
         </div>
         <script>
@@ -276,7 +1196,7 @@
         </script>
         </main>
 
-        <footer class="bg-slate-800 text-slate-300 py-12 mt-12">
+        <footer class="bg-slate-800 text-slate-300 py-12 mt-12 no-print">
             <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12">
                 <div>
                     <h3 class="text-xl font-bold mb-4 text-white">まなびドリル</h3>
