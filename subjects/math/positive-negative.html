@@ -14,10 +14,15 @@
         @media print {
             .no-print { display: none !important; }
             .print-only { display: block !important; }
-            body { background: white; }
+            body { background: white; color: black; }
             main { padding: 0 !important; max-width: none !important; }
-            .unit-card { border: 1px solid #e2e8f0 !important; break-inside: avoid; margin-bottom: 2rem; border-radius: 1rem !important; }
+            .unit-card { border: 1px solid #000 !important; break-inside: avoid; margin-bottom: 1rem; border-radius: 0.5rem !important; }
             .print-footer { position: fixed; bottom: 0; right: 0; font-size: 10px; color: #94a3b8; padding: 10px; }
+            .print-header { display: flex !important; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; border-bottom: 2px solid #000; padding-bottom: 1rem; }
+            .print-title { font-size: 24px; font-weight: bold; }
+            .student-info { display: flex !important; gap: 2rem; }
+            .info-box { border-bottom: 1px solid #000; min-width: 150px; padding-bottom: 2px; font-size: 14px; }
+            .ans-section { margin-top: 3rem; border-top: 2px dashed #ccc; padding-top: 2rem; break-before: page; }
         }
         .print-only { display: none; }
     </style>
@@ -79,6 +84,14 @@
           </nav>
 
           <header class="mb-12">
+            <div class="print-header print-only hidden">
+                <div class="print-title">正負の数 ドリル</div>
+                <div class="student-info">
+                    <div class="info-box text-slate-400">年　　組　　番</div>
+                    <div class="info-box text-slate-400">氏名：</div>
+                    <div class="info-box text-slate-400 text-right">／30点</div>
+                </div>
+            </div>
             <h1 class="text-3xl md:text-4xl font-black text-slate-800 mb-4">正負の数 練習ドリル</h1>
             <p class="text-slate-500 font-medium no-print">全30問のドリルです。一つずつ丁寧に解いていきましょう。</p>
             <div class="mt-6 flex flex-wrap gap-4 no-print">
@@ -101,7 +114,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    計算しなさい: (-9) + (20)
+                    計算しなさい: (-9) + (4)
                 </p>
             </div>
 
@@ -117,7 +130,7 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">11</span>
+                                <span class="text-2xl font-black">-5</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
@@ -137,7 +150,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    計算しなさい: (-15) - (9)
+                    計算しなさい: (-16) - (15)
                 </p>
             </div>
 
@@ -146,402 +159,6 @@
                     <i class="fa-solid fa-check"></i> 答え合わせ
                 </button>
                 <div id="ans2" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
-                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
-                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
-                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
-                        </div>
-                        <div class="text-green-800 leading-relaxed">
-                            <div class="mb-4">
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">-24</span>
-                            </div>
-                            <div>
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
-            <div class="flex items-center gap-3 mb-6">
-                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問3</span>
-                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 3</h2>
-            </div>
-
-            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
-                <p class="text-lg leading-relaxed text-slate-700">
-                    計算しなさい: (-15) × (-3)
-                </p>
-            </div>
-
-            <div class="flex flex-col gap-4">
-                <button onclick="toggleAnswer('ans3', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
-                    <i class="fa-solid fa-check"></i> 答え合わせ
-                </button>
-                <div id="ans3" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
-                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
-                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
-                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
-                        </div>
-                        <div class="text-green-800 leading-relaxed">
-                            <div class="mb-4">
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">45</span>
-                            </div>
-                            <div>
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
-            <div class="flex items-center gap-3 mb-6">
-                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問4</span>
-                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 4</h2>
-            </div>
-
-            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
-                <p class="text-lg leading-relaxed text-slate-700">
-                    計算しなさい: (40) ÷ (-10)
-                </p>
-            </div>
-
-            <div class="flex flex-col gap-4">
-                <button onclick="toggleAnswer('ans4', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
-                    <i class="fa-solid fa-check"></i> 答え合わせ
-                </button>
-                <div id="ans4" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
-                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
-                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
-                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
-                        </div>
-                        <div class="text-green-800 leading-relaxed">
-                            <div class="mb-4">
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">-4</span>
-                            </div>
-                            <div>
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
-            <div class="flex items-center gap-3 mb-6">
-                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問5</span>
-                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 5</h2>
-            </div>
-
-            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
-                <p class="text-lg leading-relaxed text-slate-700">
-                    計算しなさい: (-15) + (3)
-                </p>
-            </div>
-
-            <div class="flex flex-col gap-4">
-                <button onclick="toggleAnswer('ans5', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
-                    <i class="fa-solid fa-check"></i> 答え合わせ
-                </button>
-                <div id="ans5" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
-                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
-                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
-                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
-                        </div>
-                        <div class="text-green-800 leading-relaxed">
-                            <div class="mb-4">
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">-12</span>
-                            </div>
-                            <div>
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
-            <div class="flex items-center gap-3 mb-6">
-                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問6</span>
-                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 6</h2>
-            </div>
-
-            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
-                <p class="text-lg leading-relaxed text-slate-700">
-                    計算しなさい: (15) - (9)
-                </p>
-            </div>
-
-            <div class="flex flex-col gap-4">
-                <button onclick="toggleAnswer('ans6', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
-                    <i class="fa-solid fa-check"></i> 答え合わせ
-                </button>
-                <div id="ans6" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
-                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
-                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
-                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
-                        </div>
-                        <div class="text-green-800 leading-relaxed">
-                            <div class="mb-4">
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">6</span>
-                            </div>
-                            <div>
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
-            <div class="flex items-center gap-3 mb-6">
-                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問7</span>
-                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 7</h2>
-            </div>
-
-            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
-                <p class="text-lg leading-relaxed text-slate-700">
-                    計算しなさい: (-10) × (-1)
-                </p>
-            </div>
-
-            <div class="flex flex-col gap-4">
-                <button onclick="toggleAnswer('ans7', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
-                    <i class="fa-solid fa-check"></i> 答え合わせ
-                </button>
-                <div id="ans7" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
-                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
-                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
-                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
-                        </div>
-                        <div class="text-green-800 leading-relaxed">
-                            <div class="mb-4">
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">10</span>
-                            </div>
-                            <div>
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
-            <div class="flex items-center gap-3 mb-6">
-                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問8</span>
-                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 8</h2>
-            </div>
-
-            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
-                <p class="text-lg leading-relaxed text-slate-700">
-                    計算しなさい: (-64) ÷ (-16)
-                </p>
-            </div>
-
-            <div class="flex flex-col gap-4">
-                <button onclick="toggleAnswer('ans8', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
-                    <i class="fa-solid fa-check"></i> 答え合わせ
-                </button>
-                <div id="ans8" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
-                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
-                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
-                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
-                        </div>
-                        <div class="text-green-800 leading-relaxed">
-                            <div class="mb-4">
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">4</span>
-                            </div>
-                            <div>
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
-            <div class="flex items-center gap-3 mb-6">
-                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問9</span>
-                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 9</h2>
-            </div>
-
-            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
-                <p class="text-lg leading-relaxed text-slate-700">
-                    計算しなさい: (-19) + (-2)
-                </p>
-            </div>
-
-            <div class="flex flex-col gap-4">
-                <button onclick="toggleAnswer('ans9', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
-                    <i class="fa-solid fa-check"></i> 答え合わせ
-                </button>
-                <div id="ans9" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
-                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
-                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
-                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
-                        </div>
-                        <div class="text-green-800 leading-relaxed">
-                            <div class="mb-4">
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">-21</span>
-                            </div>
-                            <div>
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
-            <div class="flex items-center gap-3 mb-6">
-                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問10</span>
-                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 10</h2>
-            </div>
-
-            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
-                <p class="text-lg leading-relaxed text-slate-700">
-                    計算しなさい: (5) - (4)
-                </p>
-            </div>
-
-            <div class="flex flex-col gap-4">
-                <button onclick="toggleAnswer('ans10', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
-                    <i class="fa-solid fa-check"></i> 答え合わせ
-                </button>
-                <div id="ans10" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
-                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
-                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
-                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
-                        </div>
-                        <div class="text-green-800 leading-relaxed">
-                            <div class="mb-4">
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">1</span>
-                            </div>
-                            <div>
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
-            <div class="flex items-center gap-3 mb-6">
-                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問11</span>
-                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 11</h2>
-            </div>
-
-            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
-                <p class="text-lg leading-relaxed text-slate-700">
-                    計算しなさい: (-12) × (19)
-                </p>
-            </div>
-
-            <div class="flex flex-col gap-4">
-                <button onclick="toggleAnswer('ans11', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
-                    <i class="fa-solid fa-check"></i> 答え合わせ
-                </button>
-                <div id="ans11" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
-                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
-                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
-                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
-                        </div>
-                        <div class="text-green-800 leading-relaxed">
-                            <div class="mb-4">
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">-228</span>
-                            </div>
-                            <div>
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
-            <div class="flex items-center gap-3 mb-6">
-                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問12</span>
-                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 12</h2>
-            </div>
-
-            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
-                <p class="text-lg leading-relaxed text-slate-700">
-                    計算しなさい: (-12) ÷ (12)
-                </p>
-            </div>
-
-            <div class="flex flex-col gap-4">
-                <button onclick="toggleAnswer('ans12', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
-                    <i class="fa-solid fa-check"></i> 答え合わせ
-                </button>
-                <div id="ans12" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
-                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
-                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
-                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
-                        </div>
-                        <div class="text-green-800 leading-relaxed">
-                            <div class="mb-4">
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">-1</span>
-                            </div>
-                            <div>
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
-            <div class="flex items-center gap-3 mb-6">
-                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問13</span>
-                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 13</h2>
-            </div>
-
-            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
-                <p class="text-lg leading-relaxed text-slate-700">
-                    計算しなさい: (-14) + (-17)
-                </p>
-            </div>
-
-            <div class="flex flex-col gap-4">
-                <button onclick="toggleAnswer('ans13', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
-                    <i class="fa-solid fa-check"></i> 答え合わせ
-                </button>
-                <div id="ans13" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
                     <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
                         <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
                             <i class="fa-solid fa-lightbulb"></i> 正解と解説
@@ -563,21 +180,21 @@
 
         <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
             <div class="flex items-center gap-3 mb-6">
-                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問14</span>
-                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 14</h2>
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問3</span>
+                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 3</h2>
             </div>
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    計算しなさい: (8) - (-20)
+                    計算しなさい: (11) × (2)
                 </p>
             </div>
 
             <div class="flex flex-col gap-4">
-                <button onclick="toggleAnswer('ans14', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                <button onclick="toggleAnswer('ans3', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
                     <i class="fa-solid fa-check"></i> 答え合わせ
                 </button>
-                <div id="ans14" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                <div id="ans3" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
                     <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
                         <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
                             <i class="fa-solid fa-lightbulb"></i> 正解と解説
@@ -585,7 +202,7 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">28</span>
+                                <span class="text-2xl font-black">22</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
@@ -599,21 +216,21 @@
 
         <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
             <div class="flex items-center gap-3 mb-6">
-                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問15</span>
-                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 15</h2>
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問4</span>
+                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 4</h2>
             </div>
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    計算しなさい: (16) × (-5)
+                    計算しなさい: (0) ÷ (-14)
                 </p>
             </div>
 
             <div class="flex flex-col gap-4">
-                <button onclick="toggleAnswer('ans15', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                <button onclick="toggleAnswer('ans4', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
                     <i class="fa-solid fa-check"></i> 答え合わせ
                 </button>
-                <div id="ans15" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                <div id="ans4" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
                     <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
                         <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
                             <i class="fa-solid fa-lightbulb"></i> 正解と解説
@@ -621,7 +238,7 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">-80</span>
+                                <span class="text-2xl font-black">0</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
@@ -635,21 +252,21 @@
 
         <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
             <div class="flex items-center gap-3 mb-6">
-                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問16</span>
-                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 16</h2>
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問5</span>
+                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 5</h2>
             </div>
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    計算しなさい: (8) ÷ (2)
+                    計算しなさい: (-14) + (-13)
                 </p>
             </div>
 
             <div class="flex flex-col gap-4">
-                <button onclick="toggleAnswer('ans16', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                <button onclick="toggleAnswer('ans5', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
                     <i class="fa-solid fa-check"></i> 答え合わせ
                 </button>
-                <div id="ans16" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                <div id="ans5" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
                     <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
                         <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
                             <i class="fa-solid fa-lightbulb"></i> 正解と解説
@@ -657,7 +274,7 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">4</span>
+                                <span class="text-2xl font-black">-27</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
@@ -671,21 +288,21 @@
 
         <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
             <div class="flex items-center gap-3 mb-6">
-                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問17</span>
-                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 17</h2>
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問6</span>
+                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 6</h2>
             </div>
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    計算しなさい: (-7) + (5)
+                    計算しなさい: (3) - (5)
                 </p>
             </div>
 
             <div class="flex flex-col gap-4">
-                <button onclick="toggleAnswer('ans17', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                <button onclick="toggleAnswer('ans6', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
                     <i class="fa-solid fa-check"></i> 答え合わせ
                 </button>
-                <div id="ans17" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                <div id="ans6" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
                     <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
                         <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
                             <i class="fa-solid fa-lightbulb"></i> 正解と解説
@@ -707,13 +324,409 @@
 
         <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
             <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問7</span>
+                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 7</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    計算しなさい: (-3) × (10)
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans7', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans7" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">-30</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問8</span>
+                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 8</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    計算しなさい: (0) ÷ (-2)
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans8', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans8" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">0</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問9</span>
+                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 9</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    計算しなさい: (-14) + (18)
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans9', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans9" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">4</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問10</span>
+                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 10</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    計算しなさい: (18) - (9)
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans10', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans10" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">9</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問11</span>
+                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 11</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    計算しなさい: (-1) × (13)
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans11', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans11" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">-13</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問12</span>
+                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 12</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    計算しなさい: (0) ÷ (-3)
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans12', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans12" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">0</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問13</span>
+                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 13</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    計算しなさい: (12) + (16)
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans13', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans13" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">28</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問14</span>
+                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 14</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    計算しなさい: (19) - (11)
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans14', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans14" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">8</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問15</span>
+                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 15</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    計算しなさい: (-20) × (20)
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans15', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans15" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">-400</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問16</span>
+                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 16</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    計算しなさい: (25) ÷ (-5)
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans16', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans16" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">-5</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問17</span>
+                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 17</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    計算しなさい: (13) + (-4)
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans17', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans17" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">9</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
                 <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問18</span>
                 <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 18</h2>
             </div>
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    計算しなさい: (13) - (-19)
+                    計算しなさい: (-6) - (20)
                 </p>
             </div>
 
@@ -729,7 +742,7 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">32</span>
+                                <span class="text-2xl font-black">-26</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
@@ -749,7 +762,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    計算しなさい: (-9) × (19)
+                    計算しなさい: (-4) × (20)
                 </p>
             </div>
 
@@ -765,7 +778,7 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">-171</span>
+                                <span class="text-2xl font-black">-80</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
@@ -785,7 +798,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    計算しなさい: (-30) ÷ (-15)
+                    計算しなさい: (28) ÷ (14)
                 </p>
             </div>
 
@@ -821,7 +834,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    計算しなさい: (13) + (18)
+                    計算しなさい: (-7) + (13)
                 </p>
             </div>
 
@@ -837,7 +850,7 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">31</span>
+                                <span class="text-2xl font-black">6</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
@@ -857,7 +870,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    計算しなさい: (-11) - (10)
+                    計算しなさい: (13) - (16)
                 </p>
             </div>
 
@@ -873,7 +886,7 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">-21</span>
+                                <span class="text-2xl font-black">-3</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
@@ -893,7 +906,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    計算しなさい: (20) × (6)
+                    計算しなさい: (-16) × (-11)
                 </p>
             </div>
 
@@ -909,7 +922,7 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">120</span>
+                                <span class="text-2xl font-black">176</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
@@ -929,7 +942,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    計算しなさい: (40) ÷ (-20)
+                    計算しなさい: (12) ÷ (-12)
                 </p>
             </div>
 
@@ -938,6 +951,186 @@
                     <i class="fa-solid fa-check"></i> 答え合わせ
                 </button>
                 <div id="ans24" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">-1</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問25</span>
+                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 25</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    計算しなさい: (-5) + (-13)
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans25', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans25" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">-18</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問26</span>
+                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 26</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    計算しなさい: (-9) - (-17)
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans26', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans26" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">8</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問27</span>
+                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 27</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    計算しなさい: (-3) × (-16)
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans27', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans27" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">48</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問28</span>
+                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 28</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    計算しなさい: (8) ÷ (-2)
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans28', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans28" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
+                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
+                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
+                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
+                        </div>
+                        <div class="text-green-800 leading-relaxed">
+                            <div class="mb-4">
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
+                                <span class="text-2xl font-black">-4</span>
+                            </div>
+                            <div>
+                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
+                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
+            <div class="flex items-center gap-3 mb-6">
+                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問29</span>
+                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 29</h2>
+            </div>
+
+            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
+                <p class="text-lg leading-relaxed text-slate-700">
+                    計算しなさい: (11) + (-13)
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <button onclick="toggleAnswer('ans29', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
+                    <i class="fa-solid fa-check"></i> 答え合わせ
+                </button>
+                <div id="ans29" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
                     <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
                         <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
                             <i class="fa-solid fa-lightbulb"></i> 正解と解説
@@ -959,193 +1152,13 @@
 
         <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
             <div class="flex items-center gap-3 mb-6">
-                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問25</span>
-                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 25</h2>
-            </div>
-
-            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
-                <p class="text-lg leading-relaxed text-slate-700">
-                    計算しなさい: (-3) + (-8)
-                </p>
-            </div>
-
-            <div class="flex flex-col gap-4">
-                <button onclick="toggleAnswer('ans25', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
-                    <i class="fa-solid fa-check"></i> 答え合わせ
-                </button>
-                <div id="ans25" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
-                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
-                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
-                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
-                        </div>
-                        <div class="text-green-800 leading-relaxed">
-                            <div class="mb-4">
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">-11</span>
-                            </div>
-                            <div>
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
-            <div class="flex items-center gap-3 mb-6">
-                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問26</span>
-                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 26</h2>
-            </div>
-
-            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
-                <p class="text-lg leading-relaxed text-slate-700">
-                    計算しなさい: (4) - (-17)
-                </p>
-            </div>
-
-            <div class="flex flex-col gap-4">
-                <button onclick="toggleAnswer('ans26', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
-                    <i class="fa-solid fa-check"></i> 答え合わせ
-                </button>
-                <div id="ans26" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
-                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
-                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
-                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
-                        </div>
-                        <div class="text-green-800 leading-relaxed">
-                            <div class="mb-4">
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">21</span>
-                            </div>
-                            <div>
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
-            <div class="flex items-center gap-3 mb-6">
-                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問27</span>
-                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 27</h2>
-            </div>
-
-            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
-                <p class="text-lg leading-relaxed text-slate-700">
-                    計算しなさい: (-15) × (-15)
-                </p>
-            </div>
-
-            <div class="flex flex-col gap-4">
-                <button onclick="toggleAnswer('ans27', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
-                    <i class="fa-solid fa-check"></i> 答え合わせ
-                </button>
-                <div id="ans27" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
-                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
-                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
-                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
-                        </div>
-                        <div class="text-green-800 leading-relaxed">
-                            <div class="mb-4">
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">225</span>
-                            </div>
-                            <div>
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
-            <div class="flex items-center gap-3 mb-6">
-                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問28</span>
-                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 28</h2>
-            </div>
-
-            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
-                <p class="text-lg leading-relaxed text-slate-700">
-                    計算しなさい: (35) ÷ (-7)
-                </p>
-            </div>
-
-            <div class="flex flex-col gap-4">
-                <button onclick="toggleAnswer('ans28', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
-                    <i class="fa-solid fa-check"></i> 答え合わせ
-                </button>
-                <div id="ans28" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
-                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
-                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
-                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
-                        </div>
-                        <div class="text-green-800 leading-relaxed">
-                            <div class="mb-4">
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">-5</span>
-                            </div>
-                            <div>
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
-            <div class="flex items-center gap-3 mb-6">
-                <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問29</span>
-                <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 29</h2>
-            </div>
-
-            <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
-                <p class="text-lg leading-relaxed text-slate-700">
-                    計算しなさい: (7) + (-2)
-                </p>
-            </div>
-
-            <div class="flex flex-col gap-4">
-                <button onclick="toggleAnswer('ans29', this)" class="w-full sm:w-fit bg-sky-500 text-white px-8 py-3 rounded-xl font-bold hover:bg-sky-600 transition shadow-md shadow-sky-100 flex items-center justify-center gap-2 no-print">
-                    <i class="fa-solid fa-check"></i> 答え合わせ
-                </button>
-                <div id="ans29" class="hidden animate-in fade-in slide-in-from-top-2 duration-300 print:block">
-                    <div class="p-8 bg-green-50 border border-green-100 rounded-2xl">
-                        <div class="flex items-center gap-2 text-green-700 font-bold mb-4">
-                            <i class="fa-solid fa-lightbulb"></i> 正解と解説
-                        </div>
-                        <div class="text-green-800 leading-relaxed">
-                            <div class="mb-4">
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">5</span>
-                            </div>
-                            <div>
-                                <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>正負の数の基本計算です。符号のルールに注意しましょう。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-white border border-slate-100 rounded-[2rem] p-8 shadow-sm overflow-hidden relative group unit-card">
-            <div class="flex items-center gap-3 mb-6">
                 <span class="bg-sky-500 text-white w-10 h-10 rounded-xl flex items-center justify-center font-black">問30</span>
                 <h2 class="text-xl font-bold text-slate-800">正負の数 の問題 30</h2>
             </div>
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    計算しなさい: (16) - (-15)
+                    計算しなさい: (-3) - (-9)
                 </p>
             </div>
 
@@ -1161,7 +1174,7 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">31</span>
+                                <span class="text-2xl font-black">6</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
@@ -1173,6 +1186,193 @@
             </div>
         </section>
 
+          </div>
+
+          <div class="ans-section print-only hidden">
+            <h2 class="text-2xl font-bold mb-6 border-b-2 border-slate-800 pb-2">解答と解説</h2>
+            <div class="grid grid-cols-1 gap-4">
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問1:</span>
+                  <span class="font-bold text-lg mr-4">-5</span>
+                  <span class="text-slate-600 text-sm">正負の数の基本計算です。符号のルールに注意しましょう。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問2:</span>
+                  <span class="font-bold text-lg mr-4">-31</span>
+                  <span class="text-slate-600 text-sm">正負の数の基本計算です。符号のルールに注意しましょう。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問3:</span>
+                  <span class="font-bold text-lg mr-4">22</span>
+                  <span class="text-slate-600 text-sm">正負の数の基本計算です。符号のルールに注意しましょう。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問4:</span>
+                  <span class="font-bold text-lg mr-4">0</span>
+                  <span class="text-slate-600 text-sm">正負の数の基本計算です。符号のルールに注意しましょう。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問5:</span>
+                  <span class="font-bold text-lg mr-4">-27</span>
+                  <span class="text-slate-600 text-sm">正負の数の基本計算です。符号のルールに注意しましょう。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問6:</span>
+                  <span class="font-bold text-lg mr-4">-2</span>
+                  <span class="text-slate-600 text-sm">正負の数の基本計算です。符号のルールに注意しましょう。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問7:</span>
+                  <span class="font-bold text-lg mr-4">-30</span>
+                  <span class="text-slate-600 text-sm">正負の数の基本計算です。符号のルールに注意しましょう。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問8:</span>
+                  <span class="font-bold text-lg mr-4">0</span>
+                  <span class="text-slate-600 text-sm">正負の数の基本計算です。符号のルールに注意しましょう。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問9:</span>
+                  <span class="font-bold text-lg mr-4">4</span>
+                  <span class="text-slate-600 text-sm">正負の数の基本計算です。符号のルールに注意しましょう。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問10:</span>
+                  <span class="font-bold text-lg mr-4">9</span>
+                  <span class="text-slate-600 text-sm">正負の数の基本計算です。符号のルールに注意しましょう。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問11:</span>
+                  <span class="font-bold text-lg mr-4">-13</span>
+                  <span class="text-slate-600 text-sm">正負の数の基本計算です。符号のルールに注意しましょう。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問12:</span>
+                  <span class="font-bold text-lg mr-4">0</span>
+                  <span class="text-slate-600 text-sm">正負の数の基本計算です。符号のルールに注意しましょう。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問13:</span>
+                  <span class="font-bold text-lg mr-4">28</span>
+                  <span class="text-slate-600 text-sm">正負の数の基本計算です。符号のルールに注意しましょう。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問14:</span>
+                  <span class="font-bold text-lg mr-4">8</span>
+                  <span class="text-slate-600 text-sm">正負の数の基本計算です。符号のルールに注意しましょう。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問15:</span>
+                  <span class="font-bold text-lg mr-4">-400</span>
+                  <span class="text-slate-600 text-sm">正負の数の基本計算です。符号のルールに注意しましょう。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問16:</span>
+                  <span class="font-bold text-lg mr-4">-5</span>
+                  <span class="text-slate-600 text-sm">正負の数の基本計算です。符号のルールに注意しましょう。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問17:</span>
+                  <span class="font-bold text-lg mr-4">9</span>
+                  <span class="text-slate-600 text-sm">正負の数の基本計算です。符号のルールに注意しましょう。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問18:</span>
+                  <span class="font-bold text-lg mr-4">-26</span>
+                  <span class="text-slate-600 text-sm">正負の数の基本計算です。符号のルールに注意しましょう。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問19:</span>
+                  <span class="font-bold text-lg mr-4">-80</span>
+                  <span class="text-slate-600 text-sm">正負の数の基本計算です。符号のルールに注意しましょう。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問20:</span>
+                  <span class="font-bold text-lg mr-4">2</span>
+                  <span class="text-slate-600 text-sm">正負の数の基本計算です。符号のルールに注意しましょう。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問21:</span>
+                  <span class="font-bold text-lg mr-4">6</span>
+                  <span class="text-slate-600 text-sm">正負の数の基本計算です。符号のルールに注意しましょう。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問22:</span>
+                  <span class="font-bold text-lg mr-4">-3</span>
+                  <span class="text-slate-600 text-sm">正負の数の基本計算です。符号のルールに注意しましょう。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問23:</span>
+                  <span class="font-bold text-lg mr-4">176</span>
+                  <span class="text-slate-600 text-sm">正負の数の基本計算です。符号のルールに注意しましょう。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問24:</span>
+                  <span class="font-bold text-lg mr-4">-1</span>
+                  <span class="text-slate-600 text-sm">正負の数の基本計算です。符号のルールに注意しましょう。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問25:</span>
+                  <span class="font-bold text-lg mr-4">-18</span>
+                  <span class="text-slate-600 text-sm">正負の数の基本計算です。符号のルールに注意しましょう。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問26:</span>
+                  <span class="font-bold text-lg mr-4">8</span>
+                  <span class="text-slate-600 text-sm">正負の数の基本計算です。符号のルールに注意しましょう。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問27:</span>
+                  <span class="font-bold text-lg mr-4">48</span>
+                  <span class="text-slate-600 text-sm">正負の数の基本計算です。符号のルールに注意しましょう。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問28:</span>
+                  <span class="font-bold text-lg mr-4">-4</span>
+                  <span class="text-slate-600 text-sm">正負の数の基本計算です。符号のルールに注意しましょう。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問29:</span>
+                  <span class="font-bold text-lg mr-4">-2</span>
+                  <span class="text-slate-600 text-sm">正負の数の基本計算です。符号のルールに注意しましょう。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問30:</span>
+                  <span class="font-bold text-lg mr-4">6</span>
+                  <span class="text-slate-600 text-sm">正負の数の基本計算です。符号のルールに注意しましょう。</span>
+                </div>
+
+            </div>
           </div>
 
           <div class="mt-16 pt-10 border-t border-slate-200 flex justify-center no-print">

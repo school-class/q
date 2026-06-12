@@ -24,10 +24,15 @@ function getLayout(content, title = SITE_TITLE, depth = 0) {
         @media print {
             .no-print { display: none !important; }
             .print-only { display: block !important; }
-            body { background: white; }
+            body { background: white; color: black; }
             main { padding: 0 !important; max-width: none !important; }
-            .unit-card { border: 1px solid #e2e8f0 !important; break-inside: avoid; margin-bottom: 2rem; border-radius: 1rem !important; }
+            .unit-card { border: 1px solid #000 !important; break-inside: avoid; margin-bottom: 1rem; border-radius: 0.5rem !important; }
             .print-footer { position: fixed; bottom: 0; right: 0; font-size: 10px; color: #94a3b8; padding: 10px; }
+            .print-header { display: flex !important; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; border-bottom: 2px solid #000; padding-bottom: 1rem; }
+            .print-title { font-size: 24px; font-weight: bold; }
+            .student-info { display: flex !important; gap: 2rem; }
+            .info-box { border-bottom: 1px solid #000; min-width: 150px; padding-bottom: 2px; font-size: 14px; }
+            .ans-section { margin-top: 3rem; border-top: 2px dashed #ccc; padding-top: 2rem; break-before: page; }
         }
         .print-only { display: none; }
     </style>
@@ -318,6 +323,14 @@ function generateSubjectPages() {
           </nav>
 
           <header class="mb-12">
+            <div class="print-header print-only hidden">
+                <div class="print-title">${unit.title} ドリル</div>
+                <div class="student-info">
+                    <div class="info-box text-slate-400">年　　組　　番</div>
+                    <div class="info-box text-slate-400">氏名：</div>
+                    <div class="info-box text-slate-400 text-right">／30点</div>
+                </div>
+            </div>
             <h1 class="text-3xl md:text-4xl font-black text-slate-800 mb-4">${unit.title} 練習ドリル</h1>
             <p class="text-slate-500 font-medium no-print">全30問のドリルです。一つずつ丁寧に解いていきましょう。</p>
             <div class="mt-6 flex flex-wrap gap-4 no-print">
@@ -332,6 +345,19 @@ function generateSubjectPages() {
 
           <div class="space-y-12">
             ${problems}
+          </div>
+
+          <div class="ans-section print-only hidden">
+            <h2 class="text-2xl font-bold mb-6 border-b-2 border-slate-800 pb-2">解答と解説</h2>
+            <div class="grid grid-cols-1 gap-4">
+              ${unit.problems.map((p, i) => `
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問${i + 1}:</span>
+                  <span class="font-bold text-lg mr-4">${p.a}</span>
+                  <span class="text-slate-600 text-sm">${p.e}</span>
+                </div>
+              `).join('')}
+            </div>
           </div>
 
           <div class="mt-16 pt-10 border-t border-slate-200 flex justify-center no-print">
@@ -358,7 +384,35 @@ function generateSubjectPages() {
   });
 }
 
+function generateSitemap() {
+  const BASE_URL = 'https://manabi-drill.com'; // Change to actual URL if known
+  let urls = [
+    '',
+    'about.html',
+    'how-to-use.html',
+    'privacy-policy.html'
+  ];
+
+  Object.values(subjects).forEach(subject => {
+    urls.push(`subjects/${subject.id}/index.html`);
+    subject.units.forEach(unit => {
+      urls.push(`subjects/${subject.id}/${unit.id}.html`);
+    });
+  });
+
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls.map(url => `  <url>
+    <loc>${BASE_URL}/${url}</loc>
+    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+  </url>`).join('\n')}
+</urlset>`;
+
+  fs.writeFileSync('sitemap.xml', sitemap);
+}
+
 generateIndex();
 generateStaticPages();
 generateSubjectPages();
-console.log('Manabi Drill site generated successfully!');
+generateSitemap();
+console.log('Manabi Drill site and sitemap.xml generated successfully!');
