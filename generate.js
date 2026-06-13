@@ -385,7 +385,7 @@ function generateSubjectPages() {
 }
 
 function generateSitemap() {
-  const BASE_URL = 'https://manabi-drill.com'; // Change to actual URL if known
+  const BASE_URL = 'https://study.blocksurprise.f5.si';
   let urls = [
     '',
     'about.html',
