@@ -14,10 +14,15 @@
         @media print {
             .no-print { display: none !important; }
             .print-only { display: block !important; }
-            body { background: white; }
+            body { background: white; color: black; }
             main { padding: 0 !important; max-width: none !important; }
-            .unit-card { border: 1px solid #e2e8f0 !important; break-inside: avoid; margin-bottom: 2rem; border-radius: 1rem !important; }
+            .unit-card { border: 1px solid #000 !important; break-inside: avoid; margin-bottom: 1rem; border-radius: 0.5rem !important; }
             .print-footer { position: fixed; bottom: 0; right: 0; font-size: 10px; color: #94a3b8; padding: 10px; }
+            .print-header { display: flex !important; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; border-bottom: 2px solid #000; padding-bottom: 1rem; }
+            .print-title { font-size: 24px; font-weight: bold; }
+            .student-info { display: flex !important; gap: 2rem; }
+            .info-box { border-bottom: 1px solid #000; min-width: 150px; padding-bottom: 2px; font-size: 14px; }
+            .ans-section { margin-top: 3rem; border-top: 2px dashed #ccc; padding-top: 2rem; break-before: page; }
         }
         .print-only { display: none; }
     </style>
@@ -79,6 +84,14 @@
           </nav>
 
           <header class="mb-12">
+            <div class="print-header print-only hidden">
+                <div class="print-title">近代の日本 ドリル</div>
+                <div class="student-info">
+                    <div class="info-box text-slate-400">年　　組　　番</div>
+                    <div class="info-box text-slate-400">氏名：</div>
+                    <div class="info-box text-slate-400 text-right">／30点</div>
+                </div>
+            </div>
             <h1 class="text-3xl md:text-4xl font-black text-slate-800 mb-4">近代の日本 練習ドリル</h1>
             <p class="text-slate-500 font-medium no-print">全30問のドリルです。一つずつ丁寧に解いていきましょう。</p>
             <div class="mt-6 flex flex-wrap gap-4 no-print">
@@ -101,7 +114,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    近代の日本 に関する重要事項を問う問題 1 です。教科書の基本内容を確認しましょう。
+                    1867年に江戸幕府が政権を朝廷に返上した出来事を何といいますか。
                 </p>
             </div>
 
@@ -117,11 +130,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">正解 1</span>
+                                <span class="text-2xl font-black">大政奉還</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 1: 近代の日本 のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>15代将軍・徳川慶喜が行いました。</p>
                             </div>
                         </div>
                     </div>
@@ -137,7 +150,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    近代の日本 に関する重要事項を問う問題 2 です。教科書の基本内容を確認しましょう。
+                    明治政府が1868年に出した、新しい政治の基本方針を何といいますか。
                 </p>
             </div>
 
@@ -153,11 +166,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">正解 2</span>
+                                <span class="text-2xl font-black">五箇条の御誓文</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 2: 近代の日本 のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>天皇が神に誓うという形で出されました。</p>
                             </div>
                         </div>
                     </div>
@@ -173,7 +186,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    近代の日本 に関する重要事項を問う問題 3 です。教科書の基本内容を確認しましょう。
+                    明治政府が土地の所有者に地券を発行し、地価の3%を現金で納めさせた改革を何といいますか。
                 </p>
             </div>
 
@@ -189,11 +202,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">正解 3</span>
+                                <span class="text-2xl font-black">地租改正</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 3: 近代の日本 のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>政府の収入を安定させる目的がありました。</p>
                             </div>
                         </div>
                     </div>
@@ -209,7 +222,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    近代の日本 に関する重要事項を問う問題 4 です。教科書の基本内容を確認しましょう。
+                    1889年に発布された、ドイツ（プロイセン）の憲法を参考にした憲法は何ですか。
                 </p>
             </div>
 
@@ -225,11 +238,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">正解 4</span>
+                                <span class="text-2xl font-black">大日本帝国憲法</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 4: 近代の日本 のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>君主権の強い憲法でした。</p>
                             </div>
                         </div>
                     </div>
@@ -245,7 +258,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    近代の日本 に関する重要事項を問う問題 5 です。教科書の基本内容を確認しましょう。
+                    1894年に日本と清の間で始まった戦争は何ですか。
                 </p>
             </div>
 
@@ -261,11 +274,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">正解 5</span>
+                                <span class="text-2xl font-black">日清戦争</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 5: 近代の日本 のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>朝鮮の支配権をめぐる対立が原因でした。</p>
                             </div>
                         </div>
                     </div>
@@ -281,7 +294,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    近代の日本 に関する重要事項を問う問題 6 です。教科書の基本内容を確認しましょう。
+                    日清戦争の講和条約として結ばれた条約は何ですか。
                 </p>
             </div>
 
@@ -297,11 +310,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">正解 6</span>
+                                <span class="text-2xl font-black">下関条約</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 6: 近代の日本 のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>遼東半島や台湾の割譲、賠償金の支払いなどが決められました。</p>
                             </div>
                         </div>
                     </div>
@@ -317,7 +330,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    近代の日本 に関する重要事項を問う問題 7 です。教科書の基本内容を確認しましょう。
+                    1904年に日本とロシアの間で始まった戦争は何ですか。
                 </p>
             </div>
 
@@ -333,11 +346,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">正解 7</span>
+                                <span class="text-2xl font-black">日露戦争</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 7: 近代の日本 のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>満州と朝鮮をめぐる対立が原因でした。</p>
                             </div>
                         </div>
                     </div>
@@ -353,7 +366,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    近代の日本 に関する重要事項を問う問題 8 です。教科書の基本内容を確認しましょう。
+                    日露戦争の講和条約として結ばれた条約は何ですか。
                 </p>
             </div>
 
@@ -369,11 +382,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">正解 8</span>
+                                <span class="text-2xl font-black">ポーツマス条約</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 8: 近代の日本 のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>アメリカの仲介で結ばれましたが、賠償金はありませんでした。</p>
                             </div>
                         </div>
                     </div>
@@ -389,7 +402,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    近代の日本 に関する重要事項を問う問題 9 です。教科書の基本内容を確認しましょう。
+                    1914年にヨーロッパで始まり、日本も参戦した世界規模の戦争は何ですか。
                 </p>
             </div>
 
@@ -405,11 +418,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">正解 9</span>
+                                <span class="text-2xl font-black">第一次世界大戦</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 9: 近代の日本 のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>連合国側で参戦し、二十一か条の要求などを出しました。</p>
                             </div>
                         </div>
                     </div>
@@ -425,7 +438,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    近代の日本 に関する重要事項を問う問題 10 です。教科書の基本内容を確認しましょう。
+                    1923年9月1日に発生し、関東地方に大きな被害をもたらした災害は何ですか。
                 </p>
             </div>
 
@@ -441,11 +454,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">正解 10</span>
+                                <span class="text-2xl font-black">関東大震災</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 10: 近代の日本 のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>この震災後の混乱で経済も打撃を受けました。</p>
                             </div>
                         </div>
                     </div>
@@ -461,7 +474,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    近代の日本 に関する重要事項を問う問題 11 です。教科書の基本内容を確認しましょう。
+                    1931年に奉天郊外で線路が爆破された事件（柳条湖事件）をきっかけに始まったのは何ですか。
                 </p>
             </div>
 
@@ -477,11 +490,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">正解 11</span>
+                                <span class="text-2xl font-black">満州事変</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 11: 近代の日本 のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>関東軍の独走により始まりました。</p>
                             </div>
                         </div>
                     </div>
@@ -497,7 +510,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    近代の日本 に関する重要事項を問う問題 12 です。教科書の基本内容を確認しましょう。
+                    1932年、海軍将校らが首相官邸を襲い、犬養毅首相を殺害した事件は何ですか。
                 </p>
             </div>
 
@@ -513,11 +526,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">正解 12</span>
+                                <span class="text-2xl font-black">五・一五事件</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 12: 近代の日本 のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>これにより政党政治が幕を閉じました。</p>
                             </div>
                         </div>
                     </div>
@@ -533,7 +546,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    近代の日本 に関する重要事項を問う問題 13 です。教科書の基本内容を確認しましょう。
+                    1937年、北京郊外の盧溝橋での衝突をきっかけに始まった、日本と中国の戦争は何ですか。
                 </p>
             </div>
 
@@ -549,11 +562,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">正解 13</span>
+                                <span class="text-2xl font-black">日中戦争</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 13: 近代の日本 のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>戦争は長期化していきました。</p>
                             </div>
                         </div>
                     </div>
@@ -569,7 +582,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    近代の日本 に関する重要事項を問う問題 14 です。教科書の基本内容を確認しましょう。
+                    1941年12月8日、日本軍がハワイの真珠湾を攻撃したことで始まった戦争は何ですか。
                 </p>
             </div>
 
@@ -585,11 +598,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">正解 14</span>
+                                <span class="text-2xl font-black">太平洋戦争</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 14: 近代の日本 のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>第二次世界大戦の一部として、アメリカ・イギリス等と戦いました。</p>
                             </div>
                         </div>
                     </div>
@@ -605,7 +618,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    近代の日本 に関する重要事項を問う問題 15 です。教科書の基本内容を確認しましょう。
+                    太平洋戦争中、1945年3月に激しい地上戦が行われた日本の地域はどこですか。
                 </p>
             </div>
 
@@ -621,11 +634,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">正解 15</span>
+                                <span class="text-2xl font-black">沖縄</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 15: 近代の日本 のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>多くの民間人が犠牲になりました。</p>
                             </div>
                         </div>
                     </div>
@@ -641,7 +654,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    近代の日本 に関する重要事項を問う問題 16 です。教科書の基本内容を確認しましょう。
+                    1945年8月6日、世界で初めて原子爆弾が投下された都市はどこですか。
                 </p>
             </div>
 
@@ -657,11 +670,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">正解 16</span>
+                                <span class="text-2xl font-black">広島</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 16: 近代の日本 のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>その後、8月9日には長崎にも投下されました。</p>
                             </div>
                         </div>
                     </div>
@@ -677,7 +690,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    近代の日本 に関する重要事項を問う問題 17 です。教科書の基本内容を確認しましょう。
+                    1945年8月14日に日本が受諾を決定し、8月15日に国民に伝えられた宣言は何ですか。
                 </p>
             </div>
 
@@ -693,11 +706,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">正解 17</span>
+                                <span class="text-2xl font-black">ポツダム宣言</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 17: 近代の日本 のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>これにより日本は無条件降伏しました。</p>
                             </div>
                         </div>
                     </div>
@@ -713,7 +726,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    近代の日本 に関する重要事項を問う問題 18 です。教科書の基本内容を確認しましょう。
+                    明治時代、欧米に追いつくために進められた「国を富ませ、軍隊を強くする」政策を何といいますか。
                 </p>
             </div>
 
@@ -729,11 +742,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">正解 18</span>
+                                <span class="text-2xl font-black">富国強兵</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 18: 近代の日本 のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>殖産興業などもその一環です。</p>
                             </div>
                         </div>
                     </div>
@@ -749,7 +762,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    近代の日本 に関する重要事項を問う問題 19 です。教科書の基本内容を確認しましょう。
+                    1873年に出された、満20歳以上の男子に兵役の義務を課した法令は何ですか。
                 </p>
             </div>
 
@@ -765,11 +778,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">正解 19</span>
+                                <span class="text-2xl font-black">徴兵令</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 19: 近代の日本 のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>国民皆兵を目指しました。</p>
                             </div>
                         </div>
                     </div>
@@ -785,7 +798,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    近代の日本 に関する重要事項を問う問題 20 です。教科書の基本内容を確認しましょう。
+                    板垣退助らが始めた、国民の政治参加や国会の開設を求める運動を何といいますか。
                 </p>
             </div>
 
@@ -801,11 +814,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">正解 20</span>
+                                <span class="text-2xl font-black">自由民権運動</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 20: 近代の日本 のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>1874年の民撰議院設立建白書がきっかけです。</p>
                             </div>
                         </div>
                     </div>
@@ -821,7 +834,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    近代の日本 に関する重要事項を問う問題 21 です。教科書の基本内容を確認しましょう。
+                    1885年に内閣制度が創設されたとき、初代内閣総理大臣になったのは誰ですか。
                 </p>
             </div>
 
@@ -837,11 +850,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">正解 21</span>
+                                <span class="text-2xl font-black">伊藤博文</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 21: 近代の日本 のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>憲法制定にも大きく関わりました。</p>
                             </div>
                         </div>
                     </div>
@@ -857,7 +870,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    近代の日本 に関する重要事項を問う問題 22 です。教科書の基本内容を確認しましょう。
+                    1918年、富山県の主婦たちの抗議から始まり、全国に広がった騒動を何といいますか。
                 </p>
             </div>
 
@@ -873,11 +886,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">正解 22</span>
+                                <span class="text-2xl font-black">米騒動</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 22: 近代の日本 のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>シベリア出兵による米価高騰が原因です。</p>
                             </div>
                         </div>
                     </div>
@@ -893,7 +906,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    近代の日本 に関する重要事項を問う問題 23 です。教科書の基本内容を確認しましょう。
+                    1925年に制定された、25歳以上のすべての男子に選挙権を認めた法律は何ですか。
                 </p>
             </div>
 
@@ -909,11 +922,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">正解 23</span>
+                                <span class="text-2xl font-black">普通選挙法</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 23: 近代の日本 のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>同時に治安維持法も制定されました。</p>
                             </div>
                         </div>
                     </div>
@@ -929,7 +942,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    近代の日本 に関する重要事項を問う問題 24 です。教科書の基本内容を確認しましょう。
+                    1933年、国際連盟が満州を認めなかったことに反対して、日本が行ったことは何ですか。
                 </p>
             </div>
 
@@ -945,11 +958,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">正解 24</span>
+                                <span class="text-2xl font-black">国際連盟からの脱退</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 24: 近代の日本 のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>松岡洋右全権が退席しました。</p>
                             </div>
                         </div>
                     </div>
@@ -965,7 +978,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    近代の日本 に関する重要事項を問う問題 25 です。教科書の基本内容を確認しましょう。
+                    太平洋戦争中、国民の生活や経済をすべて戦争に動員するために出された法律は何ですか。
                 </p>
             </div>
 
@@ -981,11 +994,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">正解 25</span>
+                                <span class="text-2xl font-black">国家総動員法</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 25: 近代の日本 のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>1938年に制定されました。</p>
                             </div>
                         </div>
                     </div>
@@ -1001,7 +1014,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    近代の日本 に関する重要事項を問う問題 26 です。教科書の基本内容を確認しましょう。
+                    太平洋戦争末期、学生たちが学業を中断して戦場へ送られたことを何といいますか。
                 </p>
             </div>
 
@@ -1017,11 +1030,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">正解 26</span>
+                                <span class="text-2xl font-black">学徒出陣</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 26: 近代の日本 のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>労働力不足を補うための勤労動員も行われました。</p>
                             </div>
                         </div>
                     </div>
@@ -1037,7 +1050,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    近代の日本 に関する重要事項を問う問題 27 です。教科書の基本内容を確認しましょう。
+                    日清戦争後の1895年、ロシア・ドイツ・フランスが遼東半島の返還を日本に要求したことを何といいますか。
                 </p>
             </div>
 
@@ -1053,11 +1066,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">正解 27</span>
+                                <span class="text-2xl font-black">三国干渉</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 27: 近代の日本 のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>日本はこれを受け入れ、ロシアへの対抗意識を強めました。</p>
                             </div>
                         </div>
                     </div>
@@ -1073,7 +1086,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    近代の日本 に関する重要事項を問う問題 28 です。教科書の基本内容を確認しましょう。
+                    1911年、関税自主権の完全な回復に成功した当時の外相は誰ですか。
                 </p>
             </div>
 
@@ -1089,11 +1102,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">正解 28</span>
+                                <span class="text-2xl font-black">小村寿太郎</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 28: 近代の日本 のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>陸奥宗光は領事裁判権の撤廃に成功しました。</p>
                             </div>
                         </div>
                     </div>
@@ -1109,7 +1122,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    近代の日本 に関する重要事項を問う問題 29 です。教科書の基本内容を確認しましょう。
+                    大正時代、民主主義を求める政治的・社会的な動きを何といいますか。
                 </p>
             </div>
 
@@ -1125,11 +1138,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">正解 29</span>
+                                <span class="text-2xl font-black">大正デモクラシー</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 29: 近代の日本 のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>吉野作造の民本主義などが有名です。</p>
                             </div>
                         </div>
                     </div>
@@ -1145,7 +1158,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    近代の日本 に関する重要事項を問う問題 30 です。教科書の基本内容を確認しましょう。
+                    1936年、陸軍の青年将校らが武装蜂起し、大臣らを殺害した事件は何ですか。
                 </p>
             </div>
 
@@ -1161,11 +1174,11 @@
                         <div class="text-green-800 leading-relaxed">
                             <div class="mb-4">
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解答</span>
-                                <span class="text-2xl font-black">正解 30</span>
+                                <span class="text-2xl font-black">二・二六事件</span>
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 30: 近代の日本 のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>軍部の発言力がさらに強まりました。</p>
                             </div>
                         </div>
                     </div>
@@ -1173,6 +1186,193 @@
             </div>
         </section>
 
+          </div>
+
+          <div class="ans-section print-only hidden">
+            <h2 class="text-2xl font-bold mb-6 border-b-2 border-slate-800 pb-2">解答と解説</h2>
+            <div class="grid grid-cols-1 gap-4">
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問1:</span>
+                  <span class="font-bold text-lg mr-4">大政奉還</span>
+                  <span class="text-slate-600 text-sm">15代将軍・徳川慶喜が行いました。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問2:</span>
+                  <span class="font-bold text-lg mr-4">五箇条の御誓文</span>
+                  <span class="text-slate-600 text-sm">天皇が神に誓うという形で出されました。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問3:</span>
+                  <span class="font-bold text-lg mr-4">地租改正</span>
+                  <span class="text-slate-600 text-sm">政府の収入を安定させる目的がありました。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問4:</span>
+                  <span class="font-bold text-lg mr-4">大日本帝国憲法</span>
+                  <span class="text-slate-600 text-sm">君主権の強い憲法でした。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問5:</span>
+                  <span class="font-bold text-lg mr-4">日清戦争</span>
+                  <span class="text-slate-600 text-sm">朝鮮の支配権をめぐる対立が原因でした。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問6:</span>
+                  <span class="font-bold text-lg mr-4">下関条約</span>
+                  <span class="text-slate-600 text-sm">遼東半島や台湾の割譲、賠償金の支払いなどが決められました。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問7:</span>
+                  <span class="font-bold text-lg mr-4">日露戦争</span>
+                  <span class="text-slate-600 text-sm">満州と朝鮮をめぐる対立が原因でした。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問8:</span>
+                  <span class="font-bold text-lg mr-4">ポーツマス条約</span>
+                  <span class="text-slate-600 text-sm">アメリカの仲介で結ばれましたが、賠償金はありませんでした。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問9:</span>
+                  <span class="font-bold text-lg mr-4">第一次世界大戦</span>
+                  <span class="text-slate-600 text-sm">連合国側で参戦し、二十一か条の要求などを出しました。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問10:</span>
+                  <span class="font-bold text-lg mr-4">関東大震災</span>
+                  <span class="text-slate-600 text-sm">この震災後の混乱で経済も打撃を受けました。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問11:</span>
+                  <span class="font-bold text-lg mr-4">満州事変</span>
+                  <span class="text-slate-600 text-sm">関東軍の独走により始まりました。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問12:</span>
+                  <span class="font-bold text-lg mr-4">五・一五事件</span>
+                  <span class="text-slate-600 text-sm">これにより政党政治が幕を閉じました。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問13:</span>
+                  <span class="font-bold text-lg mr-4">日中戦争</span>
+                  <span class="text-slate-600 text-sm">戦争は長期化していきました。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問14:</span>
+                  <span class="font-bold text-lg mr-4">太平洋戦争</span>
+                  <span class="text-slate-600 text-sm">第二次世界大戦の一部として、アメリカ・イギリス等と戦いました。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問15:</span>
+                  <span class="font-bold text-lg mr-4">沖縄</span>
+                  <span class="text-slate-600 text-sm">多くの民間人が犠牲になりました。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問16:</span>
+                  <span class="font-bold text-lg mr-4">広島</span>
+                  <span class="text-slate-600 text-sm">その後、8月9日には長崎にも投下されました。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問17:</span>
+                  <span class="font-bold text-lg mr-4">ポツダム宣言</span>
+                  <span class="text-slate-600 text-sm">これにより日本は無条件降伏しました。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問18:</span>
+                  <span class="font-bold text-lg mr-4">富国強兵</span>
+                  <span class="text-slate-600 text-sm">殖産興業などもその一環です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問19:</span>
+                  <span class="font-bold text-lg mr-4">徴兵令</span>
+                  <span class="text-slate-600 text-sm">国民皆兵を目指しました。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問20:</span>
+                  <span class="font-bold text-lg mr-4">自由民権運動</span>
+                  <span class="text-slate-600 text-sm">1874年の民撰議院設立建白書がきっかけです。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問21:</span>
+                  <span class="font-bold text-lg mr-4">伊藤博文</span>
+                  <span class="text-slate-600 text-sm">憲法制定にも大きく関わりました。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問22:</span>
+                  <span class="font-bold text-lg mr-4">米騒動</span>
+                  <span class="text-slate-600 text-sm">シベリア出兵による米価高騰が原因です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問23:</span>
+                  <span class="font-bold text-lg mr-4">普通選挙法</span>
+                  <span class="text-slate-600 text-sm">同時に治安維持法も制定されました。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問24:</span>
+                  <span class="font-bold text-lg mr-4">国際連盟からの脱退</span>
+                  <span class="text-slate-600 text-sm">松岡洋右全権が退席しました。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問25:</span>
+                  <span class="font-bold text-lg mr-4">国家総動員法</span>
+                  <span class="text-slate-600 text-sm">1938年に制定されました。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問26:</span>
+                  <span class="font-bold text-lg mr-4">学徒出陣</span>
+                  <span class="text-slate-600 text-sm">労働力不足を補うための勤労動員も行われました。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問27:</span>
+                  <span class="font-bold text-lg mr-4">三国干渉</span>
+                  <span class="text-slate-600 text-sm">日本はこれを受け入れ、ロシアへの対抗意識を強めました。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問28:</span>
+                  <span class="font-bold text-lg mr-4">小村寿太郎</span>
+                  <span class="text-slate-600 text-sm">陸奥宗光は領事裁判権の撤廃に成功しました。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問29:</span>
+                  <span class="font-bold text-lg mr-4">大正デモクラシー</span>
+                  <span class="text-slate-600 text-sm">吉野作造の民本主義などが有名です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問30:</span>
+                  <span class="font-bold text-lg mr-4">二・二六事件</span>
+                  <span class="text-slate-600 text-sm">軍部の発言力がさらに強まりました。</span>
+                </div>
+
+            </div>
           </div>
 
           <div class="mt-16 pt-10 border-t border-slate-200 flex justify-center no-print">

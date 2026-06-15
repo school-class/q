@@ -14,10 +14,15 @@
         @media print {
             .no-print { display: none !important; }
             .print-only { display: block !important; }
-            body { background: white; }
+            body { background: white; color: black; }
             main { padding: 0 !important; max-width: none !important; }
-            .unit-card { border: 1px solid #e2e8f0 !important; break-inside: avoid; margin-bottom: 2rem; border-radius: 1rem !important; }
+            .unit-card { border: 1px solid #000 !important; break-inside: avoid; margin-bottom: 1rem; border-radius: 0.5rem !important; }
             .print-footer { position: fixed; bottom: 0; right: 0; font-size: 10px; color: #94a3b8; padding: 10px; }
+            .print-header { display: flex !important; justify-content: space-between; align-items: flex-end; margin-bottom: 2rem; border-bottom: 2px solid #000; padding-bottom: 1rem; }
+            .print-title { font-size: 24px; font-weight: bold; }
+            .student-info { display: flex !important; gap: 2rem; }
+            .info-box { border-bottom: 1px solid #000; min-width: 150px; padding-bottom: 2px; font-size: 14px; }
+            .ans-section { margin-top: 3rem; border-top: 2px dashed #ccc; padding-top: 2rem; break-before: page; }
         }
         .print-only { display: none; }
     </style>
@@ -79,6 +84,14 @@
           </nav>
 
           <header class="mb-12">
+            <div class="print-header print-only hidden">
+                <div class="print-title">生物の体とつくり ドリル</div>
+                <div class="student-info">
+                    <div class="info-box text-slate-400">年　　組　　番</div>
+                    <div class="info-box text-slate-400">氏名：</div>
+                    <div class="info-box text-slate-400 text-right">／30点</div>
+                </div>
+            </div>
             <h1 class="text-3xl md:text-4xl font-black text-slate-800 mb-4">生物の体とつくり 練習ドリル</h1>
             <p class="text-slate-500 font-medium no-print">全30問のドリルです。一つずつ丁寧に解いていきましょう。</p>
             <div class="mt-6 flex flex-wrap gap-4 no-print">
@@ -101,7 +114,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    生物の体とつくり に関する重要事項を問う問題 1 です。教科書の基本内容を確認しましょう。
+                    生物の体とつくり に関する重要事項を問う問題 1 です。教科書の内容を思い出しましょう。
                 </p>
             </div>
 
@@ -121,7 +134,7 @@
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 1: 生物の体とつくり のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>解説 1: 生物の体とつくり において、この語句や仕組みは非常に重要です。</p>
                             </div>
                         </div>
                     </div>
@@ -137,7 +150,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    生物の体とつくり に関する重要事項を問う問題 2 です。教科書の基本内容を確認しましょう。
+                    生物の体とつくり に関する重要事項を問う問題 2 です。教科書の内容を思い出しましょう。
                 </p>
             </div>
 
@@ -157,7 +170,7 @@
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 2: 生物の体とつくり のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>解説 2: 生物の体とつくり において、この語句や仕組みは非常に重要です。</p>
                             </div>
                         </div>
                     </div>
@@ -173,7 +186,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    生物の体とつくり に関する重要事項を問う問題 3 です。教科書の基本内容を確認しましょう。
+                    生物の体とつくり に関する重要事項を問う問題 3 です。教科書の内容を思い出しましょう。
                 </p>
             </div>
 
@@ -193,7 +206,7 @@
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 3: 生物の体とつくり のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>解説 3: 生物の体とつくり において、この語句や仕組みは非常に重要です。</p>
                             </div>
                         </div>
                     </div>
@@ -209,7 +222,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    生物の体とつくり に関する重要事項を問う問題 4 です。教科書の基本内容を確認しましょう。
+                    生物の体とつくり に関する重要事項を問う問題 4 です。教科書の内容を思い出しましょう。
                 </p>
             </div>
 
@@ -229,7 +242,7 @@
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 4: 生物の体とつくり のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>解説 4: 生物の体とつくり において、この語句や仕組みは非常に重要です。</p>
                             </div>
                         </div>
                     </div>
@@ -245,7 +258,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    生物の体とつくり に関する重要事項を問う問題 5 です。教科書の基本内容を確認しましょう。
+                    生物の体とつくり に関する重要事項を問う問題 5 です。教科書の内容を思い出しましょう。
                 </p>
             </div>
 
@@ -265,7 +278,7 @@
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 5: 生物の体とつくり のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>解説 5: 生物の体とつくり において、この語句や仕組みは非常に重要です。</p>
                             </div>
                         </div>
                     </div>
@@ -281,7 +294,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    生物の体とつくり に関する重要事項を問う問題 6 です。教科書の基本内容を確認しましょう。
+                    生物の体とつくり に関する重要事項を問う問題 6 です。教科書の内容を思い出しましょう。
                 </p>
             </div>
 
@@ -301,7 +314,7 @@
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 6: 生物の体とつくり のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>解説 6: 生物の体とつくり において、この語句や仕組みは非常に重要です。</p>
                             </div>
                         </div>
                     </div>
@@ -317,7 +330,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    生物の体とつくり に関する重要事項を問う問題 7 です。教科書の基本内容を確認しましょう。
+                    生物の体とつくり に関する重要事項を問う問題 7 です。教科書の内容を思い出しましょう。
                 </p>
             </div>
 
@@ -337,7 +350,7 @@
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 7: 生物の体とつくり のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>解説 7: 生物の体とつくり において、この語句や仕組みは非常に重要です。</p>
                             </div>
                         </div>
                     </div>
@@ -353,7 +366,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    生物の体とつくり に関する重要事項を問う問題 8 です。教科書の基本内容を確認しましょう。
+                    生物の体とつくり に関する重要事項を問う問題 8 です。教科書の内容を思い出しましょう。
                 </p>
             </div>
 
@@ -373,7 +386,7 @@
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 8: 生物の体とつくり のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>解説 8: 生物の体とつくり において、この語句や仕組みは非常に重要です。</p>
                             </div>
                         </div>
                     </div>
@@ -389,7 +402,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    生物の体とつくり に関する重要事項を問う問題 9 です。教科書の基本内容を確認しましょう。
+                    生物の体とつくり に関する重要事項を問う問題 9 です。教科書の内容を思い出しましょう。
                 </p>
             </div>
 
@@ -409,7 +422,7 @@
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 9: 生物の体とつくり のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>解説 9: 生物の体とつくり において、この語句や仕組みは非常に重要です。</p>
                             </div>
                         </div>
                     </div>
@@ -425,7 +438,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    生物の体とつくり に関する重要事項を問う問題 10 です。教科書の基本内容を確認しましょう。
+                    生物の体とつくり に関する重要事項を問う問題 10 です。教科書の内容を思い出しましょう。
                 </p>
             </div>
 
@@ -445,7 +458,7 @@
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 10: 生物の体とつくり のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>解説 10: 生物の体とつくり において、この語句や仕組みは非常に重要です。</p>
                             </div>
                         </div>
                     </div>
@@ -461,7 +474,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    生物の体とつくり に関する重要事項を問う問題 11 です。教科書の基本内容を確認しましょう。
+                    生物の体とつくり に関する重要事項を問う問題 11 です。教科書の内容を思い出しましょう。
                 </p>
             </div>
 
@@ -481,7 +494,7 @@
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 11: 生物の体とつくり のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>解説 11: 生物の体とつくり において、この語句や仕組みは非常に重要です。</p>
                             </div>
                         </div>
                     </div>
@@ -497,7 +510,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    生物の体とつくり に関する重要事項を問う問題 12 です。教科書の基本内容を確認しましょう。
+                    生物の体とつくり に関する重要事項を問う問題 12 です。教科書の内容を思い出しましょう。
                 </p>
             </div>
 
@@ -517,7 +530,7 @@
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 12: 生物の体とつくり のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>解説 12: 生物の体とつくり において、この語句や仕組みは非常に重要です。</p>
                             </div>
                         </div>
                     </div>
@@ -533,7 +546,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    生物の体とつくり に関する重要事項を問う問題 13 です。教科書の基本内容を確認しましょう。
+                    生物の体とつくり に関する重要事項を問う問題 13 です。教科書の内容を思い出しましょう。
                 </p>
             </div>
 
@@ -553,7 +566,7 @@
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 13: 生物の体とつくり のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>解説 13: 生物の体とつくり において、この語句や仕組みは非常に重要です。</p>
                             </div>
                         </div>
                     </div>
@@ -569,7 +582,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    生物の体とつくり に関する重要事項を問う問題 14 です。教科書の基本内容を確認しましょう。
+                    生物の体とつくり に関する重要事項を問う問題 14 です。教科書の内容を思い出しましょう。
                 </p>
             </div>
 
@@ -589,7 +602,7 @@
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 14: 生物の体とつくり のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>解説 14: 生物の体とつくり において、この語句や仕組みは非常に重要です。</p>
                             </div>
                         </div>
                     </div>
@@ -605,7 +618,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    生物の体とつくり に関する重要事項を問う問題 15 です。教科書の基本内容を確認しましょう。
+                    生物の体とつくり に関する重要事項を問う問題 15 です。教科書の内容を思い出しましょう。
                 </p>
             </div>
 
@@ -625,7 +638,7 @@
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 15: 生物の体とつくり のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>解説 15: 生物の体とつくり において、この語句や仕組みは非常に重要です。</p>
                             </div>
                         </div>
                     </div>
@@ -641,7 +654,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    生物の体とつくり に関する重要事項を問う問題 16 です。教科書の基本内容を確認しましょう。
+                    生物の体とつくり に関する重要事項を問う問題 16 です。教科書の内容を思い出しましょう。
                 </p>
             </div>
 
@@ -661,7 +674,7 @@
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 16: 生物の体とつくり のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>解説 16: 生物の体とつくり において、この語句や仕組みは非常に重要です。</p>
                             </div>
                         </div>
                     </div>
@@ -677,7 +690,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    生物の体とつくり に関する重要事項を問う問題 17 です。教科書の基本内容を確認しましょう。
+                    生物の体とつくり に関する重要事項を問う問題 17 です。教科書の内容を思い出しましょう。
                 </p>
             </div>
 
@@ -697,7 +710,7 @@
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 17: 生物の体とつくり のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>解説 17: 生物の体とつくり において、この語句や仕組みは非常に重要です。</p>
                             </div>
                         </div>
                     </div>
@@ -713,7 +726,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    生物の体とつくり に関する重要事項を問う問題 18 です。教科書の基本内容を確認しましょう。
+                    生物の体とつくり に関する重要事項を問う問題 18 です。教科書の内容を思い出しましょう。
                 </p>
             </div>
 
@@ -733,7 +746,7 @@
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 18: 生物の体とつくり のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>解説 18: 生物の体とつくり において、この語句や仕組みは非常に重要です。</p>
                             </div>
                         </div>
                     </div>
@@ -749,7 +762,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    生物の体とつくり に関する重要事項を問う問題 19 です。教科書の基本内容を確認しましょう。
+                    生物の体とつくり に関する重要事項を問う問題 19 です。教科書の内容を思い出しましょう。
                 </p>
             </div>
 
@@ -769,7 +782,7 @@
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 19: 生物の体とつくり のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>解説 19: 生物の体とつくり において、この語句や仕組みは非常に重要です。</p>
                             </div>
                         </div>
                     </div>
@@ -785,7 +798,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    生物の体とつくり に関する重要事項を問う問題 20 です。教科書の基本内容を確認しましょう。
+                    生物の体とつくり に関する重要事項を問う問題 20 です。教科書の内容を思い出しましょう。
                 </p>
             </div>
 
@@ -805,7 +818,7 @@
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 20: 生物の体とつくり のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>解説 20: 生物の体とつくり において、この語句や仕組みは非常に重要です。</p>
                             </div>
                         </div>
                     </div>
@@ -821,7 +834,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    生物の体とつくり に関する重要事項を問う問題 21 です。教科書の基本内容を確認しましょう。
+                    生物の体とつくり に関する重要事項を問う問題 21 です。教科書の内容を思い出しましょう。
                 </p>
             </div>
 
@@ -841,7 +854,7 @@
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 21: 生物の体とつくり のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>解説 21: 生物の体とつくり において、この語句や仕組みは非常に重要です。</p>
                             </div>
                         </div>
                     </div>
@@ -857,7 +870,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    生物の体とつくり に関する重要事項を問う問題 22 です。教科書の基本内容を確認しましょう。
+                    生物の体とつくり に関する重要事項を問う問題 22 です。教科書の内容を思い出しましょう。
                 </p>
             </div>
 
@@ -877,7 +890,7 @@
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 22: 生物の体とつくり のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>解説 22: 生物の体とつくり において、この語句や仕組みは非常に重要です。</p>
                             </div>
                         </div>
                     </div>
@@ -893,7 +906,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    生物の体とつくり に関する重要事項を問う問題 23 です。教科書の基本内容を確認しましょう。
+                    生物の体とつくり に関する重要事項を問う問題 23 です。教科書の内容を思い出しましょう。
                 </p>
             </div>
 
@@ -913,7 +926,7 @@
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 23: 生物の体とつくり のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>解説 23: 生物の体とつくり において、この語句や仕組みは非常に重要です。</p>
                             </div>
                         </div>
                     </div>
@@ -929,7 +942,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    生物の体とつくり に関する重要事項を問う問題 24 です。教科書の基本内容を確認しましょう。
+                    生物の体とつくり に関する重要事項を問う問題 24 です。教科書の内容を思い出しましょう。
                 </p>
             </div>
 
@@ -949,7 +962,7 @@
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 24: 生物の体とつくり のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>解説 24: 生物の体とつくり において、この語句や仕組みは非常に重要です。</p>
                             </div>
                         </div>
                     </div>
@@ -965,7 +978,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    生物の体とつくり に関する重要事項を問う問題 25 です。教科書の基本内容を確認しましょう。
+                    生物の体とつくり に関する重要事項を問う問題 25 です。教科書の内容を思い出しましょう。
                 </p>
             </div>
 
@@ -985,7 +998,7 @@
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 25: 生物の体とつくり のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>解説 25: 生物の体とつくり において、この語句や仕組みは非常に重要です。</p>
                             </div>
                         </div>
                     </div>
@@ -1001,7 +1014,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    生物の体とつくり に関する重要事項を問う問題 26 です。教科書の基本内容を確認しましょう。
+                    生物の体とつくり に関する重要事項を問う問題 26 です。教科書の内容を思い出しましょう。
                 </p>
             </div>
 
@@ -1021,7 +1034,7 @@
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 26: 生物の体とつくり のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>解説 26: 生物の体とつくり において、この語句や仕組みは非常に重要です。</p>
                             </div>
                         </div>
                     </div>
@@ -1037,7 +1050,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    生物の体とつくり に関する重要事項を問う問題 27 です。教科書の基本内容を確認しましょう。
+                    生物の体とつくり に関する重要事項を問う問題 27 です。教科書の内容を思い出しましょう。
                 </p>
             </div>
 
@@ -1057,7 +1070,7 @@
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 27: 生物の体とつくり のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>解説 27: 生物の体とつくり において、この語句や仕組みは非常に重要です。</p>
                             </div>
                         </div>
                     </div>
@@ -1073,7 +1086,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    生物の体とつくり に関する重要事項を問う問題 28 です。教科書の基本内容を確認しましょう。
+                    生物の体とつくり に関する重要事項を問う問題 28 です。教科書の内容を思い出しましょう。
                 </p>
             </div>
 
@@ -1093,7 +1106,7 @@
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 28: 生物の体とつくり のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>解説 28: 生物の体とつくり において、この語句や仕組みは非常に重要です。</p>
                             </div>
                         </div>
                     </div>
@@ -1109,7 +1122,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    生物の体とつくり に関する重要事項を問う問題 29 です。教科書の基本内容を確認しましょう。
+                    生物の体とつくり に関する重要事項を問う問題 29 です。教科書の内容を思い出しましょう。
                 </p>
             </div>
 
@@ -1129,7 +1142,7 @@
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 29: 生物の体とつくり のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>解説 29: 生物の体とつくり において、この語句や仕組みは非常に重要です。</p>
                             </div>
                         </div>
                     </div>
@@ -1145,7 +1158,7 @@
 
             <div class="bg-slate-50 p-8 rounded-2xl mb-8 border border-slate-100">
                 <p class="text-lg leading-relaxed text-slate-700">
-                    生物の体とつくり に関する重要事項を問う問題 30 です。教科書の基本内容を確認しましょう。
+                    生物の体とつくり に関する重要事項を問う問題 30 です。教科書の内容を思い出しましょう。
                 </p>
             </div>
 
@@ -1165,7 +1178,7 @@
                             </div>
                             <div>
                                 <span class="text-sm font-bold text-green-600 block uppercase tracking-wider">解説</span>
-                                <p>解説 30: 生物の体とつくり のこのポイントは非常に重要です。テストに出やすいので覚えましょう。</p>
+                                <p>解説 30: 生物の体とつくり において、この語句や仕組みは非常に重要です。</p>
                             </div>
                         </div>
                     </div>
@@ -1173,6 +1186,193 @@
             </div>
         </section>
 
+          </div>
+
+          <div class="ans-section print-only hidden">
+            <h2 class="text-2xl font-bold mb-6 border-b-2 border-slate-800 pb-2">解答と解説</h2>
+            <div class="grid grid-cols-1 gap-4">
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問1:</span>
+                  <span class="font-bold text-lg mr-4">正解 1</span>
+                  <span class="text-slate-600 text-sm">解説 1: 生物の体とつくり において、この語句や仕組みは非常に重要です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問2:</span>
+                  <span class="font-bold text-lg mr-4">正解 2</span>
+                  <span class="text-slate-600 text-sm">解説 2: 生物の体とつくり において、この語句や仕組みは非常に重要です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問3:</span>
+                  <span class="font-bold text-lg mr-4">正解 3</span>
+                  <span class="text-slate-600 text-sm">解説 3: 生物の体とつくり において、この語句や仕組みは非常に重要です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問4:</span>
+                  <span class="font-bold text-lg mr-4">正解 4</span>
+                  <span class="text-slate-600 text-sm">解説 4: 生物の体とつくり において、この語句や仕組みは非常に重要です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問5:</span>
+                  <span class="font-bold text-lg mr-4">正解 5</span>
+                  <span class="text-slate-600 text-sm">解説 5: 生物の体とつくり において、この語句や仕組みは非常に重要です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問6:</span>
+                  <span class="font-bold text-lg mr-4">正解 6</span>
+                  <span class="text-slate-600 text-sm">解説 6: 生物の体とつくり において、この語句や仕組みは非常に重要です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問7:</span>
+                  <span class="font-bold text-lg mr-4">正解 7</span>
+                  <span class="text-slate-600 text-sm">解説 7: 生物の体とつくり において、この語句や仕組みは非常に重要です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問8:</span>
+                  <span class="font-bold text-lg mr-4">正解 8</span>
+                  <span class="text-slate-600 text-sm">解説 8: 生物の体とつくり において、この語句や仕組みは非常に重要です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問9:</span>
+                  <span class="font-bold text-lg mr-4">正解 9</span>
+                  <span class="text-slate-600 text-sm">解説 9: 生物の体とつくり において、この語句や仕組みは非常に重要です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問10:</span>
+                  <span class="font-bold text-lg mr-4">正解 10</span>
+                  <span class="text-slate-600 text-sm">解説 10: 生物の体とつくり において、この語句や仕組みは非常に重要です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問11:</span>
+                  <span class="font-bold text-lg mr-4">正解 11</span>
+                  <span class="text-slate-600 text-sm">解説 11: 生物の体とつくり において、この語句や仕組みは非常に重要です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問12:</span>
+                  <span class="font-bold text-lg mr-4">正解 12</span>
+                  <span class="text-slate-600 text-sm">解説 12: 生物の体とつくり において、この語句や仕組みは非常に重要です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問13:</span>
+                  <span class="font-bold text-lg mr-4">正解 13</span>
+                  <span class="text-slate-600 text-sm">解説 13: 生物の体とつくり において、この語句や仕組みは非常に重要です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問14:</span>
+                  <span class="font-bold text-lg mr-4">正解 14</span>
+                  <span class="text-slate-600 text-sm">解説 14: 生物の体とつくり において、この語句や仕組みは非常に重要です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問15:</span>
+                  <span class="font-bold text-lg mr-4">正解 15</span>
+                  <span class="text-slate-600 text-sm">解説 15: 生物の体とつくり において、この語句や仕組みは非常に重要です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問16:</span>
+                  <span class="font-bold text-lg mr-4">正解 16</span>
+                  <span class="text-slate-600 text-sm">解説 16: 生物の体とつくり において、この語句や仕組みは非常に重要です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問17:</span>
+                  <span class="font-bold text-lg mr-4">正解 17</span>
+                  <span class="text-slate-600 text-sm">解説 17: 生物の体とつくり において、この語句や仕組みは非常に重要です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問18:</span>
+                  <span class="font-bold text-lg mr-4">正解 18</span>
+                  <span class="text-slate-600 text-sm">解説 18: 生物の体とつくり において、この語句や仕組みは非常に重要です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問19:</span>
+                  <span class="font-bold text-lg mr-4">正解 19</span>
+                  <span class="text-slate-600 text-sm">解説 19: 生物の体とつくり において、この語句や仕組みは非常に重要です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問20:</span>
+                  <span class="font-bold text-lg mr-4">正解 20</span>
+                  <span class="text-slate-600 text-sm">解説 20: 生物の体とつくり において、この語句や仕組みは非常に重要です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問21:</span>
+                  <span class="font-bold text-lg mr-4">正解 21</span>
+                  <span class="text-slate-600 text-sm">解説 21: 生物の体とつくり において、この語句や仕組みは非常に重要です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問22:</span>
+                  <span class="font-bold text-lg mr-4">正解 22</span>
+                  <span class="text-slate-600 text-sm">解説 22: 生物の体とつくり において、この語句や仕組みは非常に重要です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問23:</span>
+                  <span class="font-bold text-lg mr-4">正解 23</span>
+                  <span class="text-slate-600 text-sm">解説 23: 生物の体とつくり において、この語句や仕組みは非常に重要です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問24:</span>
+                  <span class="font-bold text-lg mr-4">正解 24</span>
+                  <span class="text-slate-600 text-sm">解説 24: 生物の体とつくり において、この語句や仕組みは非常に重要です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問25:</span>
+                  <span class="font-bold text-lg mr-4">正解 25</span>
+                  <span class="text-slate-600 text-sm">解説 25: 生物の体とつくり において、この語句や仕組みは非常に重要です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問26:</span>
+                  <span class="font-bold text-lg mr-4">正解 26</span>
+                  <span class="text-slate-600 text-sm">解説 26: 生物の体とつくり において、この語句や仕組みは非常に重要です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問27:</span>
+                  <span class="font-bold text-lg mr-4">正解 27</span>
+                  <span class="text-slate-600 text-sm">解説 27: 生物の体とつくり において、この語句や仕組みは非常に重要です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問28:</span>
+                  <span class="font-bold text-lg mr-4">正解 28</span>
+                  <span class="text-slate-600 text-sm">解説 28: 生物の体とつくり において、この語句や仕組みは非常に重要です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問29:</span>
+                  <span class="font-bold text-lg mr-4">正解 29</span>
+                  <span class="text-slate-600 text-sm">解説 29: 生物の体とつくり において、この語句や仕組みは非常に重要です。</span>
+                </div>
+
+                <div class="border-b border-slate-200 pb-2">
+                  <span class="font-bold mr-2">問30:</span>
+                  <span class="font-bold text-lg mr-4">正解 30</span>
+                  <span class="text-slate-600 text-sm">解説 30: 生物の体とつくり において、この語句や仕組みは非常に重要です。</span>
+                </div>
+
+            </div>
           </div>
 
           <div class="mt-16 pt-10 border-t border-slate-200 flex justify-center no-print">
